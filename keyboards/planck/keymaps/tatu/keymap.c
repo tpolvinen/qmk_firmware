@@ -1,6 +1,3 @@
-// This is the canonical layout file for the Quantum project. If you want to add another keyboard,
-// this is the style you want to emulate.
-//
 // To flash planck firmware
 // ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 //   Reset keyboard or press hw reset button on base (hole)
@@ -66,7 +63,7 @@
 #include "audio.h"
 #endif
 #include "eeconfig.h"
-//#include "keymap_swedish.h"
+#include "keymap_swedish.h"
 
 extern keymap_config_t keymap_config;
 
