@@ -36,7 +36,7 @@
 #define NO_ASTR LSFT(KC_BSLS)  // *
 
 // Norwegian unique MAC characters (not vetted for Swedish)
-#define NO_ACUT_MAC KC_EQL  // =
+#define NO_ACUT_MAC KC_EQL  // = -> ´
 #define NO_APOS_MAC KC_NUBS  // '
 #define NO_AT_MAC   KC_BSLS  // @
 #define NO_BSLS_MAC ALGR(LSFT(KC_7)) // '\'

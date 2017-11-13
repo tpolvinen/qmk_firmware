@@ -146,7 +146,7 @@ enum tap_dance {
  ,_LPRN
  ,_LT
  ,_PRIV
- ,_QUOT
+ ,_AE
  ,_RBRC
  ,_RCBR
  ,_RNGL
@@ -170,7 +170,7 @@ enum tap_dance {
 #define TD_LPRN TD(_LPRN)
 #define TD_LT   TD(_LT)
 #define TD_PRIV TD(_PRIV)                   // compile time macro string, provided in private_string.h
-#define TD_QUOT TD(_QUOT)
+#define TD_AE TD(_AE)
 #define TD_RBRC TD(_RBRC)
 #define TD_RCBR TD(_RCBR)
 #define TD_RNGL TD(_RNGL)
@@ -202,61 +202,61 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // .............................................................. Colemak Mod-DH
 #ifdef COLEMAK
   // ,-----------------------------------------------------------------------------------.
-  // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   ;  |
+  // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   ö  |
   // |------+------+------+------+------+-------------+------+------+------+------+------|
   // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  |
   // |------+------+------+------+------+------|------+------+------+------+------+------|
-  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   K  |   H  |   ,  |   .  |   "  |
+  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   K  |   H  |   ,  |   .  |   ä  | Minne " tai '' ?
   // |------+------+------+------+------+------+------+------+------+------+------+------|
   // | Ctrl |  GUI |  Alt |  Esc | Space|  Tab | Bksp |  Ent | Left | Down |  Up  | Right|
   // `-----------------------------------------------------------------------------------'
 
   [_BASE] = {
-    {KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    OS_CALT, OS_CGUI,  KC_J,   KC_L,    KC_U,    KC_Y,    KC_SCLN},
+    {KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    OS_CALT, OS_CGUI,  KC_J,   KC_L,    KC_U,    KC_Y,    NO_OSLH},
     {KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    OS_SALT, OS_SGUI,  KC_M,   KC_N,    KC_E,    KC_I,    KC_O   },
-    {KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    TD_CAPS, OS_CSFT,  KC_K,   KC_H,    KC_COMM, KC_DOT,  TD_QUOT},
+    {KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    TD_CAPS, OS_CSFT,  KC_K,   KC_H,    KC_COMM, KC_DOT,  NO_AE},
     {OS_CTL,  OS_GUI,  OS_ALT,  LT_ESC,  TD_SPC,  LT_TAB,  LT_BSPC,  TD_ENT, LT_LEFT, AT_DOWN, GT_UP,   CT_RGHT},
   },
 
   [_SHIFT] = {
-    {S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), KC_SCLN},
+    {S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), NO_OSLH},
     {S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O)},
-    {S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), KC_COMM, KC_DOT,  TD_QUOT},
+    {S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), KC_COMM, KC_DOT,  S(NO_AE)},
     {OS_CTL,  OS_GUI,  OS_ALT,  LT_ESC,  TD_SPC,  LT_TAB,  LT_BSPC,  TD_ENT, LT_LEFT, AT_DOWN, GT_UP,   CT_RGHT},
   },
 
   // ,-----------------------------------------------------------------------------------.
-  // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   :  |
+  // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   Ö  |
   // |------+------+------+------+------+-------------+------+------+------+------+------|
   // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  |
   // |------+------+------+------+------+------|------+------+------+------+------+------|
-  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   K  |   H  |   /  |   ?  |   "  |
+  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   K  |   H  |   ;  |   :  |   Ä  | ; ja : tähän; / ja ? RSHIFTiin (alemmas)
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // | Ctrl |  GUI |  Alt |  Esc |  f() |  Tab |  Del |   -  | Left | Down |  Up  | Right|
+  // | Ctrl |  GUI |  Alt |  Esc |  f() |  Tab |  Del |   -  | Left | Down |  Up  | Right| KC_MINS -> NO_MINS
   // `-----------------------------------------------------------------------------------'
 
   [_LSHIFT] = {
-    {S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), TD_COLN},
+    {S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), S(NO_OSLH)},
     {S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O)},
-    {S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), KC_SLSH, KC_QUES, TD_DQOT},
-    {OS_CTL,  OS_GUI,  OS_ALT,  LT_ESC,  ___fn__, LT_TAB,  KC_DEL,  KC_MINS, PS_LEFT, S_DOWN,  S_UP,    S_RGHT },
+    {S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), S(KC_COMM), S(KC_DOT), S(NO_AE)},
+    {OS_CTL,  OS_GUI,  OS_ALT,  LT_ESC,  ___fn__, LT_TAB,  KC_DEL,  NO_MINS, PS_LEFT, S_DOWN,  S_UP,    S_RGHT },
   },
 
   // ,-----------------------------------------------------------------------------------.
-  // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   :  |
+  // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   Å  |
   // |------+------+------+------+------+-------------+------+------+------+------+------|
   // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  |
   // |------+------+------+------+------+------|------+------+------+------+------+------|
-  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   K  |   H  |   ~  |   `  |   "  |
+  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   K  |   H  |   /  |   ?  |   å  | / ja ? tähän; ~ TD_TILD ja ` TD_GRV Symbol Navigation Layer:ille
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // | Ctrl |  GUI |  Alt | Caps |   _  | ↑Tab | Bksp |  f() | Left | Down |  Up  | Right|
+  // | Ctrl |  GUI |  Alt | Caps |   _  | ↑Tab | Bksp |  f() | Left | Down |  Up  | Right| KC_UNDS -> NO_UNDS
   // `-----------------------------------------------------------------------------------'
 
   [_RSHIFT] = {
-    {S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), TD_COLN},
+    {S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), S(NO_AA)},
     {S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O)},
-    {S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), TD_TILD, TD_GRV,  TD_DQOT},
-    {OS_CTL,  OS_GUI,  OS_ALT,  KC_CAPS, KC_UNDS, PS_TAB,  LT_BSPC, ___fn__, PS_LEFT, S_DOWN,  S_UP,    S_RGHT },
+    {S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), NO_SLSH, NO_QUES,  NO_AA},
+    {OS_CTL,  OS_GUI,  OS_ALT,  KC_CAPS, NO_UNDS, PS_TAB,  LT_BSPC, ___fn__, PS_LEFT, S_DOWN,  S_UP,    S_RGHT },
   },
 #endif
 
@@ -277,7 +277,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_PLOVER] = {
     {KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    _______, KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1   },
     {KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    _______, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC},
-    {KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    _______, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
+    {KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    _______, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, NO_AE},
     {_______, _______, KC_C,    KC_V,    _______, PLOVEX,  _______, KC_N,    KC_M,    _______, _______, _______},
   },
 
@@ -286,42 +286,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // http://www.keyboard-layout-editor.com/#/gists/369b861dcae7d219a11ea9b8fbfe88f1
 
   // .-----------------------------------------------------------------------------------.
-  // |      |   F  |   E  |   D  |      |      |      |   /  |   7  |   8  |   9  |   *  |
+  // |      |   F  |   E  |   D  |      |      |      |   /  |   7  |   8  |   9  |   *  | KC_SLSH -> NO_SLSH  KC_ASTR -> NO_ASTR
   // |-----------------------------------------------------------------------------------|
-  // | Ctrl |   C  |   B  |   A  |      |      |      |   .  |   4  |   5  |   6  |   -  |
+  // | Ctrl |   C  |   B  |   A  |      |      |      |   .  |   4  |   5  |   6  |   -  | KC_MINS -> NO_MINS
   // |-----------------------------------------------------------------------------------|
-  // |      |   #  |   X  |   G  |      |      |      |   ,  |   1  |   2  |   3  |   +  |
+  // |      |   #  |   X  |   G  |      |      |      |   ,  |   1  |   2  |   3  |   +  | KC_PLUS -> NO_PLUS
   // |-----------------------------------------------------------------------------------|
-  // |      |      |      |  f() |      |       |      |  0  |   =  |      |      |      |
+  // |      |      |      |  f() |      |       |      |  0  |   =  |      |      |      | LT_EQL -> NO_EQL
   // |      |      |      |  f() |      |       |      |  =  |   0  |      |      |      |
   // '-----------------------------------------------------------------------------------'
 
   [_NUMBER] = {
-    {_______, KC_F,    MT_E,    KC_D,    _______, _______, _______, KC_SLSH, KC_7,    KC_8,    KC_9,    KC_ASTR},
-    {OS_CTL,  GT_C,    AT_B,    LT_A,    _______, _______, _______, KC_DOT,  KC_4,    KC_5,    KC_6,    KC_MINS},
-    {_______, KC_HASH, MT_X,    S(KC_G), _______, _______, _______, TD_COMM, KC_1,    KC_2,    KC_3,    KC_PLUS},
+    {_______, KC_F,    MT_E,    KC_D,    _______, _______, _______, NO_SLSH, KC_7,    KC_8,    KC_9,    NO_ASTR},
+    {OS_CTL,  GT_C,    AT_B,    LT_A,    _______, _______, _______, KC_DOT,  KC_4,    KC_5,    KC_6,    NO_MINS},
+    {_______, KC_HASH, MT_X,    S(KC_G), _______, _______, _______, TD_COMM, KC_1,    KC_2,    KC_3,    NO_PLUS},
 #ifdef THUMB_0
-    {___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, KC_0,    LT_EQL,  ___x___, ___x___, ___x___},
+    {___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, KC_0,    NO_EQL,  ___x___, ___x___, ___x___},
 #else
-    {___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, KC_EQL,  LT_0,    ___x___, ___x___, ___x___},
+    {___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, NO_EQL,  LT_0,    ___x___, ___x___, ___x___}, //LT_0 undefined?
 #endif
   },
 
   // .-----------------------------------------------------------------------------------.
-  // |      |      |      |      |      |      |      |   {  |   &  |   ?  |   :  |   }  |
+  // |      |      |      |      |      |      |      |   {  |   &  |   ?  |   :  |   }  | -> NO_LCBR_MAC  KC_AMPR -> NO_AMPR  KC_QUES -> NO_QUES KC_COLN -> NO_COLN  -> NO_RCBR_MAC
   // |-----------------------------------------------------------------------------------|
-  // |      |      |      |  f() |      |      |      |   (  |   $  |   %  |   ^  |   )  |
+  // |      |      |      |  f() |      |      |      |   (  |   $  |   %  |   ^  |   )  | TD_LPRN -> NO_LPRN  KC_DLR -> NO_DLR  ? -> NO_CIRC  KC_RPRN -> NO_RPRN
   // |-----------------------------------------------------------------------------------|
-  // |      |      |      |      |      |      |      |   [  |   <  |   ~  |   >  |   ]  |
+  // |      |      |      |      |      |      |      |   [  |   <  |   ~  |   >  |   ]  | TD_LBRC -> NO_LBRC  KC_LT -> NO_LESS  KC_TILD -> NO_TILD  KC_GT -> NO_GRTR  KC_RBRC -> NO_RBRC
   // |-----------------------------------------------------------------------------------|
-  // |      |      |      |  f() |      |      |      |   |  |   \  |      |      |      |
+  // |      |      |      |  f() |      |      |      |   |  |   \  |      |      |      | -> NO_PIPE_MAC  -> NO_BSLS_MAC
   // '-----------------------------------------------------------------------------------'
 
   [_NUMSYM] = {
-    {_______, _______, _______, ___x___, _______, _______, _______, TD_LCBR, KC_AMPR, KC_QUES, KC_COLN, KC_RCBR},
-    {___x___, ___x___, ___x___, ___fn__, _______, _______, _______, TD_LPRN, KC_DLR,  KC_PERC, KC_CIRC, KC_RPRN},
-    {_______, _______, _______, ___x___, _______, _______, _______, TD_LBRC, KC_LT,   KC_TILD, KC_GT,   KC_RBRC},
-    {___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, KC_PIPE, KC_BSLS, ___x___, ___x___, ___x___},
+    {_______, _______, _______, ___x___, _______, _______, _______, NO_LCBR_MAC, NO_AMPR, NO_QUES, NO_COLN, NO_RCBR_MAC},
+    {___x___, ___x___, ___x___, ___fn__, _______, _______, _______, NO_LPRN, NO_DLR, KC_PERC, NO_CIRC, NO_RPRN},
+    {_______, _______, _______, ___x___, _______, _______, _______, NO_LBRC, NO_LESS_MAC, NO_TILD, NO_GRTR_MAC, NO_RBRC},
+    {___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, NO_PIPE_MAC, NO_BSLS_MAC, ___x___, ___x___, ___x___},
   },
 
 // ..................................................... Symbol Navigation Layer
@@ -329,9 +329,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // http://www.keyboard-layout-editor.com/#/gists/df5aa22deeca8a811e0c7a86a0269d8f
 
   // .-----------------------------------------------------------------------------------.
-  // |   {  |   .  |   *  |   &  |   }  |      |      |      | Home |  Up  |  End | PgUp |
+  // |   {  |   .  |   *  |   &  |   }  |      |      |   ~  | Home |  Up  |  End | PgUp | ~ TD_TILD -> NO_TILD
   // |-----------------------------------------------------------------------------------|
-  // |   (  |   ^  |   %  |   $  |   )  |      |      |      | Left | Down | Right| PgDn |
+  // |   (  |   ^  |   %  |   $  |   )  |      |      |   `  | Left | Down | Right| PgDn |` TD_GRV -> NO_ACUT_MAC
   // |-----------------------------------------------------------------------------------|
   // |   [  |   #  |   @  |   !  |   ]  |      |      |      |      |      |      |      |
   // |-----------------------------------------------------------------------------------|
@@ -339,8 +339,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // '-----------------------------------------------------------------------------------'
 
   [_SYMBOL] = {
-    {KC_LCBR, KC_DOT,  KC_ASTR, KC_AMPR, TD_RCBR, _______, _______, _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP},
-    {PS_LPRN, PS_CIRC, PS_PERC, PS_DLR,  TD_RPRN, _______, _______, _______, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN},
+    {KC_LCBR, KC_DOT,  KC_ASTR, KC_AMPR, TD_RCBR, _______, _______, NO_TILD, KC_HOME, KC_UP,   KC_END,  KC_PGUP},
+    {PS_LPRN, PS_CIRC, PS_PERC, PS_DLR,  TD_RPRN, _______, _______, NO_ACUT_MAC, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN},
     {KC_LBRC, KC_HASH, KC_AT,   KC_EXLM, TD_RBRC, _______, _______, _______, _______, _______, _______, _______},
     {___x___, ___x___, ___x___, LT_BSLS, PS_PIPE, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, ___x___},
   },
@@ -708,7 +708,7 @@ void tap_pair(qk_tap_dance_state_t *state, uint8_t shift, uint16_t left, uint16_
 
 void doublequote(qk_tap_dance_state_t *state, void *user_data)
 {
-  tap_pair(state, S_ALWAYS, KC_QUOT, KC_QUOT, 0, 0);
+  tap_pair(state, S_ALWAYS, NO_AE, NO_AE, 0, 0);
 }
 
 void grave(qk_tap_dance_state_t *state, void *user_data)
@@ -738,7 +738,7 @@ void lparen_reset(qk_tap_dance_state_t *state, void *user_data)
 
 void quote(qk_tap_dance_state_t *state, void *user_data)
 {
-  tap_pair(state, S_NEVER, KC_QUOT, KC_QUOT, 0, 0);
+  tap_pair(state, S_NEVER, NO_AE, NO_AE, 0, 0);
 }
 
 void rangle(qk_tap_dance_state_t *state, void *user_data)
@@ -865,7 +865,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
  ,[_LPRN] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, lparen, lparen_reset)
  ,[_LT]   = ACTION_TAP_DANCE_FN         (lesser)
  ,[_PRIV] = ACTION_TAP_DANCE_FN         (private)
- ,[_QUOT] = ACTION_TAP_DANCE_FN         (quote)
+ ,[_AE] = ACTION_TAP_DANCE_FN         (quote)
  ,[_RBRC] = ACTION_TAP_DANCE_FN         (rbrace)
  ,[_RCBR] = ACTION_TAP_DANCE_FN         (rcurly)
  ,[_RNGL] = ACTION_TAP_DANCE_FN         (rangle)

@@ -1,0 +1,36 @@
+_BASE
+qwfpb	jluyö
+arstg	mneio
+zxcdv	kh,.ä
+
+_LSHIFT
+QWFPB	JLUYÖ
+ARSTG 	MNEIO
+ZXCDV 	KH;:Ä
+     	-
+_RSHIFT
+QWFPB 	JLUYÅ
+ARSTG 	MNEIO
+ZXCDV 	KH/?å
+    _
+
+_NUMBER
+ fed 	/789*
+ cba 	.456-
+ #xG 	,123+
+     	0
+
+_NUMSYM
+		{&?:}
+		($%^)
+        [<~>]
+        |\
+
+_SYMBOL
+_SYMREG
+_MOUSE
+_FNCKEY
+_EDIT
+_ADJUST
+
+...and then, face the music and Tap Dance. :D
