@@ -186,13 +186,13 @@ enum tap_dance {
 #undef _______
 #endif
 #define _______ KC_NO
-#define COPY    LCTL(KC_C)
+#define COPY    LCTL(KC_C) // LCTL(KC_C) -> OS_GUI
 #define CUT     LCTL(KC_X)
 #define EOT     LCTL(KC_D)
 #define NAK     LCTL(KC_U)
 #define PASTE   LCTL(KC_V)
 #define UNDO    LCTL(KC_Z)
-#define TMCOPY  LALT(LCTL(KC_C))  // LALT(LCTL(KC_C)) -> OS_GUI
+#define TMCOPY  LALT(LCTL(KC_C))  
 #define TMPASTE LALT(LCTL(KC_V))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -331,7 +331,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // .-----------------------------------------------------------------------------------.
   // |   {  |   .  |   *  |   &  |   }  |      |      |   ~  | Home |  Up  |  End | PgUp | KC_LCBR -> NO_LCBR_MAC  KC_DOT  KC_ASTR -> NO_ASTR  KC_AMPR -> NO_AMPR  TD_RCBR -> NO_RCBR_MAC  TD_TILD -> NO_TILD
   // |-----------------------------------------------------------------------------------|
-  // |   (  |   ^  |   %  |   $  |   )  |      |      |   `  | Left | Down | Right| PgDn | PS_LPRN -> NO_LPRN  PS_CIRC -> NO_CIRC  PS_PERC  PS_DLR -> NO_DLR  KC_RPRN -> NO_RPRN  TD_GRV -> NO_ACUT_MAC
+  // |   (  |   ^  |   %  |   €  |   )  |      |      |   `  | Left | Down | Right| PgDn | PS_LPRN -> NO_LPRN  PS_CIRC -> NO_CIRC  PS_PERC  PS_DLR -> NO_DLR_MAC  KC_RPRN -> NO_RPRN  TD_GRV -> NO_ACUT_MAC
   // |-----------------------------------------------------------------------------------|
   // |   [  |   #  |   @  |   !  |   ]  |      |      |      |      |      |      |      | C_LBRC -> NO_LBRC  KC_HASH  KC_AT -> NO_AT  KC_EXLM  TD_RBRC -> NO_RBRC
   // |-----------------------------------------------------------------------------------|
@@ -340,7 +340,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_SYMBOL] = {
     {NO_LCBR_MAC, KC_DOT, NO_ASTR, NO_AMPR, NO_RCBR_MAC, _______, _______, NO_TILD, KC_HOME, KC_UP,   KC_END,  KC_PGUP},
-    {NO_LPRN, NO_CIRC, PS_PERC, NO_DLR,  NO_RPRN, _______, _______, NO_ACUT_MAC, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN},
+    {NO_LPRN, NO_CIRC, PS_PERC, NO_DLR_MAC,  NO_RPRN, _______, _______, NO_ACUT_MAC, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN},
     {NO_LBRC, KC_HASH, NO_AT,   KC_EXLM, NO_RBRC, _______, _______, _______, _______, _______, _______, _______},
     {___x___, ___x___, ___x___, NO_BSLS_MAC, NO_PIPE_MAC, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, ___x___},
   },

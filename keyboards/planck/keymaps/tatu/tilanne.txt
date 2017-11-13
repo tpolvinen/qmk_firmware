@@ -28,7 +28,7 @@ _NUMSYM
 
 _SYMBOL
 {.*&}  ~
-(^%$) ´
+(^%€) ´
 [#@!]
    \|
 
@@ -40,8 +40,11 @@ _SYMREG
 _MOUSE
 
 _FNCKEY
+      + 
 
 _EDIT
+...needs a lot of work!
+
 _ADJUST
 
 ...and then, face the music and Tap Dance. :D
