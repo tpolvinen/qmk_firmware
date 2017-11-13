@@ -192,7 +192,7 @@ enum tap_dance {
 #define NAK     LCTL(KC_U)
 #define PASTE   LCTL(KC_V)
 #define UNDO    LCTL(KC_Z)
-#define TMCOPY  LALT(LCTL(KC_C))
+#define TMCOPY  OS_GUI(KC_C)  // LALT(LCTL(KC_C)) -> 
 #define TMPASTE LALT(LCTL(KC_V))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -308,7 +308,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   },
 
   // .-----------------------------------------------------------------------------------.
-  // |      |      |      |      |      |      |      |   {  |   &  |   ?  |   :  |   }  | -> NO_LCBR_MAC  KC_AMPR -> NO_AMPR  KC_QUES -> NO_QUES KC_COLN -> NO_COLN  -> NO_RCBR_MAC
+  // |      |      |      |      |      |      |      |   {  |   &  |   ?  |   :  |   }  | KC_LCBR -> NO_LCBR_MAC  KC_AMPR -> NO_AMPR  KC_QUES -> NO_QUES KC_COLN -> NO_COLN  -> NO_RCBR_MAC
   // |-----------------------------------------------------------------------------------|
   // |      |      |      |  f() |      |      |      |   (  |   $  |   %  |   ^  |   )  | TD_LPRN -> NO_LPRN  KC_DLR -> NO_DLR  ? -> NO_CIRC  KC_RPRN -> NO_RPRN
   // |-----------------------------------------------------------------------------------|
@@ -329,26 +329,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // http://www.keyboard-layout-editor.com/#/gists/df5aa22deeca8a811e0c7a86a0269d8f
 
   // .-----------------------------------------------------------------------------------.
-  // |   {  |   .  |   *  |   &  |   }  |      |      |   ~  | Home |  Up  |  End | PgUp | ~ TD_TILD -> NO_TILD
+  // |   {  |   .  |   *  |   &  |   }  |      |      |   ~  | Home |  Up  |  End | PgUp | KC_LCBR -> NO_LCBR_MAC  KC_DOT  KC_ASTR -> NO_ASTR  KC_AMPR -> NO_AMPR  TD_RCBR -> NO_RCBR_MAC  TD_TILD -> NO_TILD
   // |-----------------------------------------------------------------------------------|
-  // |   (  |   ^  |   %  |   $  |   )  |      |      |   `  | Left | Down | Right| PgDn |` TD_GRV -> NO_ACUT_MAC
+  // |   (  |   ^  |   %  |   $  |   )  |      |      |   `  | Left | Down | Right| PgDn | PS_LPRN -> NO_LPRN  PS_CIRC -> NO_CIRC  PS_PERC  PS_DLR -> NO_DLR  KC_RPRN -> NO_RPRN  TD_GRV -> NO_ACUT_MAC
   // |-----------------------------------------------------------------------------------|
-  // |   [  |   #  |   @  |   !  |   ]  |      |      |      |      |      |      |      |
+  // |   [  |   #  |   @  |   !  |   ]  |      |      |      |      |      |      |      | C_LBRC -> NO_LBRC  KC_HASH  KC_AT -> NO_AT  KC_EXLM  TD_RBRC -> NO_RBRC
   // |-----------------------------------------------------------------------------------|
-  // |      |      |      |   \  |   |  |      |      |      |  f() |      |      |      |
+  // |      |      |      |   \  |   |  |      |      |      |  f() |      |      |      | LT_BSLS -> NO_BSLS_MAC   PS_PIPE -> NO_PIPE_MAC
   // '-----------------------------------------------------------------------------------'
 
   [_SYMBOL] = {
-    {KC_LCBR, KC_DOT,  KC_ASTR, KC_AMPR, TD_RCBR, _______, _______, NO_TILD, KC_HOME, KC_UP,   KC_END,  KC_PGUP},
-    {PS_LPRN, PS_CIRC, PS_PERC, PS_DLR,  TD_RPRN, _______, _______, NO_ACUT_MAC, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN},
-    {KC_LBRC, KC_HASH, KC_AT,   KC_EXLM, TD_RBRC, _______, _______, _______, _______, _______, _______, _______},
-    {___x___, ___x___, ___x___, LT_BSLS, PS_PIPE, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, ___x___},
+    {NO_LCBR_MAC, KC_DOT, NO_ASTR, NO_AMPR, NO_RCBR_MAC, _______, _______, NO_TILD, KC_HOME, KC_UP,   KC_END,  KC_PGUP},
+    {NO_LPRN, NO_CIRC, PS_PERC, NO_DLR,  NO_RPRN, _______, _______, NO_ACUT_MAC, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN},
+    {NO_LBRC, KC_HASH, NO_AT,   KC_EXLM, NO_RBRC, _______, _______, _______, _______, _______, _______, _______},
+    {___x___, ___x___, ___x___, NO_BSLS_MAC, NO_PIPE_MAC, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, ___x___},
   },
 
   // .-----------------------------------------------------------------------------------.
-  // |      |   ?  |   +  |   ~  |      |      |      |      |      |      |      |      |
+  // |      |   ?  |   +  |   ~  |      |      |      |      |      |      |      |      | KC_QUES -> NO_QUES KC_PLUS -> NO_PLUS KC_TILD -> NO_TILD
   // |-----------------------------------------------------------------------------------|
-  // |      |   <  |   =  |   >  |      |      |      |      |  f() |      |      |      |
+  // |      |   <  |   =  |   >  |      |      |      |      |  f() |      |      |      | KC_LT -> NO_LESS_MAC  KC_EQL -> NO_EQL  TD_RNGL -> NO_GRTR_MAC
   // |-----------------------------------------------------------------------------------|
   // |      |   3  |   2  |   1  |      |      |      |      |      |      |      |      |
   // |-----------------------------------------------------------------------------------|
@@ -356,8 +356,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // '-----------------------------------------------------------------------------------'
 
   [_SYMREG] = {
-    {___x___, KC_QUES, KC_PLUS, KC_TILD, ___x___, _______, _______, _______, ___x___, ___x___, ___x___, ___x___},
-    {___x___, KC_LT,   KC_EQL,  TD_RNGL, ___x___, _______, _______, _______, ___fn__, ___x___, ___x___, ___x___},
+    {___x___, NO_QUES, NO_PLUS, NO_TILD, ___x___, _______, _______, _______, ___x___, ___x___, ___x___, ___x___},
+    {___x___, NO_LESS_MAC,  NO_EQL, NO_GRTR_MAC, ___x___, _______, _______, _______, ___fn__, ___x___, ___x___, ___x___},
     {___x___, KC_3,    KC_2,    KC_1,    ___x___, _______, _______, _______, _______, _______, _______, _______},
     {___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___},
   },

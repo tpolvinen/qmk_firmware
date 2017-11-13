@@ -27,9 +27,20 @@ _NUMSYM
         |\
 
 _SYMBOL
+{.*&}  ~
+(^%$) ´
+[#@!]
+   \|
+
 _SYMREG
+  ?+~
+  <=>
+  321
+
 _MOUSE
+
 _FNCKEY
+
 _EDIT
 _ADJUST
 
