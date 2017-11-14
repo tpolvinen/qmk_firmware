@@ -312,7 +312,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |-----------------------------------------------------------------------------------|
   // |      |      |      |  f() |      |      |      |   (  |   $  |   %  |   ^  |   )  | TD_LPRN -> NO_LPRN  KC_DLR -> NO_DLR  ? -> NO_CIRC  KC_RPRN -> NO_RPRN
   // |-----------------------------------------------------------------------------------|
-  // |      |      |      |      |      |      |      |   [  |   <  |   ~  |   >  |   ]  | TD_LBRC -> NO_LBRC  KC_LT -> NO_LESS  KC_TILD -> NO_TILD  KC_GT -> NO_GRTR  KC_RBRC -> NO_RBRC
+  // |      |      |      |      |      |      |      |   [  |   <  |   ~  |   >  |   ]  | TD_LBRC -> NO_LBRC  KC_LT -> NO_LESS_MAC  KC_TILD -> NO_TILD  KC_GT -> NO_GRTR  KC_RBRC -> NO_RBRC
   // |-----------------------------------------------------------------------------------|
   // |      |      |      |  f() |      |      |      |   |  |   \  |      |      |      | -> NO_PIPE_MAC  -> NO_BSLS_MAC
   // '-----------------------------------------------------------------------------------'
@@ -858,12 +858,12 @@ qk_tap_dance_action_t tap_dance_actions[] = {
  ,[_COMM] = ACTION_TAP_DANCE_FN         (comma)
  ,[_DQOT] = ACTION_TAP_DANCE_FN         (doublequote)
  ,[_ENT]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, enter, enter_reset)
- ,[_GT]   = ACTION_TAP_DANCE_FN         (greater)
- ,[_GRV]  = ACTION_TAP_DANCE_FN         (grave)
+ ,[__GRTR_MAC]   = ACTION_TAP_DANCE_FN         (greater)
+ ,[_GRV]  = ACTION_TAP_DANCE_FN         (grave)  // _GT -> _GRTR_MAC
  ,[_LBRC] = ACTION_TAP_DANCE_FN         (lbrace)
  ,[_LCBR] = ACTION_TAP_DANCE_FN         (lcurly)
  ,[_LPRN] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, lparen, lparen_reset)
- ,[_LT]   = ACTION_TAP_DANCE_FN         (lesser)
+ ,[_LESS_MAC]   = ACTION_TAP_DANCE_FN         (lesser)  // _LT -> _LESS_MAC
  ,[_PRIV] = ACTION_TAP_DANCE_FN         (private)
  ,[_AE] = ACTION_TAP_DANCE_FN         (quote)
  ,[_RBRC] = ACTION_TAP_DANCE_FN         (rbrace)
