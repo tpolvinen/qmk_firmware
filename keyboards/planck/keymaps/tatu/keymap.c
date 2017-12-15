@@ -226,20 +226,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   },
 
   // ,-----------------------------------------------------------------------------------.
-  // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   Ö  |
+  // |   Q  |   W  |   {  |   }  |   €  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   Ö  |
   // |------+------+------+------+------+-------------+------+------+------+------+------|
-  // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  |
+  // |   A  |   R  |   <  |   >  |   ~  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  |
   // |------+------+------+------+------+------|------+------+------+------+------+------|
-  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   K  |   H  |   ;  |   :  |   Ä  | ; ja : tähän; / ja ? RSHIFTiin (alemmas)
+  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   K  |   H  |   ;  |   :  |   Ä  | // ; and : added here; / and ? -> RSHIFT
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // | Ctrl |  GUI |  Alt |  Esc |  f() |  Tab |  Del |   -  | Left | Down |  Up  | Right| KC_MINS -> NO_MINS
+  // | Ctrl |  GUI |  Alt |  Esc |  f() |  Tab |  Del |   -  | Left | Down |  Up  | Right|
   // `-----------------------------------------------------------------------------------'
 
   [_LSHIFT] = {
-    {S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), S(NO_OSLH)},
-    {S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O)},
+    {S(KC_Q), S(KC_W), NO_LCBR_MAC, NO_RCBR_MAC, NO_DLR_MAC, OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), S(NO_OSLH)},  // S(KC_F) -> NO_LCBR_MAC  S(KC_P) -> NO_RCBR_MAC  S(KC_B) -> NO_DLR_MAC
+    {S(KC_A), S(KC_R), NO_LESS_MAC, NO_GRTR_MAC, NO_TILD, OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O)}, // S(KC_S) -> NO_LESS_MAC  S(KC_T) -> NO_GRTR_MAC  S(KC_G) -> NO_TILD
     {S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), S(KC_COMM), S(KC_DOT), S(NO_AE)},
-    {OS_CTL,  OS_GUI,  OS_ALT,  LT_ESC,  ___fn__, LT_TAB,  KC_DEL,  NO_MINS, PS_LEFT, S_DOWN,  S_UP,    S_RGHT },
+    {OS_CTL,  OS_GUI,  OS_ALT,  LT_ESC,  ___fn__, LT_TAB,  KC_DEL,  NO_MINS, PS_LEFT, S_DOWN,  S_UP,    S_RGHT },  // KC_MINS -> NO_MINS
   },
 
   // ,-----------------------------------------------------------------------------------.
@@ -247,16 +247,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |------+------+------+------+------+-------------+------+------+------+------+------|
   // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  |
   // |------+------+------+------+------+------|------+------+------+------+------+------|
-  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   K  |   H  |   /  |   ?  |   å  | / ja ? tähän; ~ TD_TILD ja ` TD_GRV Symbol Navigation Layer:ille
+  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   K  |   H  |   /  |   ?  |   å  | // and ? added here; ~ TD_TILD and ` TD_GRV Symbol -> Navigation Layer
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // | Ctrl |  GUI |  Alt | Caps |   _  | ↑Tab | Bksp |  f() | Left | Down |  Up  | Right| KC_UNDS -> NO_UNDS
+  // | Ctrl |  GUI |  Alt | Caps |   _  | ↑Tab | Bksp |  f() | Left | Down |  Up  | Right|
   // `-----------------------------------------------------------------------------------'
 
+ // |   Q  |   Y  |   O  |   U  |   X  | ^Alt | ^GUI |   ^  |   [  |   ]  |   M  |   Z  |
+ // |------+------+------+------+------+-------------+------+------+------+------+------|
+ // |   K  |   H  |   E  |   A  |   ?  | ↑Alt | ↑GUI |   |  |   (  |   )  |   T  |   W  |
+
   [_RSHIFT] = {
-    {S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), S(NO_AA)},
-    {S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O)},
+    {S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, NO_CIRC, NO_LBRC, NO_RBRC, S(KC_Y), S(NO_AA)},  // S(KC_J) -> NO_CIRC  S(KC_L) -> NO_LBRC  S(KC_U) -> NO_RBRC
+    {S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, NO_PIPE_MAC, NO_LPRN, NO_RPRN, S(KC_I), S(KC_O)},  // S(KC_M) -> NO_PIPE_MAC  S(KC_N) -> NO_LPRN  S(KC_E) -> NO_RPRN 
     {S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), NO_SLSH, NO_QUES,  NO_AA},
-    {OS_CTL,  OS_GUI,  OS_ALT,  KC_CAPS, NO_UNDS, PS_TAB,  LT_BSPC, ___fn__, PS_LEFT, S_DOWN,  S_UP,    S_RGHT },
+    {OS_CTL,  OS_GUI,  OS_ALT,  KC_CAPS, NO_UNDS, PS_TAB,  LT_BSPC, ___fn__, PS_LEFT, S_DOWN,  S_UP,    S_RGHT },  // KC_UNDS -> NO_UNDS
   },
 #endif
 
