@@ -9,8 +9,8 @@ AR<>~ 	MNEIO
 ZXCDV 	KH;:Ä
      	-
 _RSHIFT
-QWFPB 	JLUYÅ
-ARSTG 	MNEIO
+QW{}€ 	JLUYÅ
+AR<>~ 	MNEIO
 ZXCDV 	KH/?å
     _
 
@@ -28,8 +28,8 @@ _NUMSYM
 
 _SYMBOL
 {.*&}  ~
-(^%€) ´
-[#@!]
+(^%€)  "
+[#@!]  ´
    \|
 
 _SYMREG

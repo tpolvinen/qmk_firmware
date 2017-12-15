@@ -331,17 +331,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // .-----------------------------------------------------------------------------------.
   // |   {  |   .  |   *  |   &  |   }  |      |      |   ~  | Home |  Up  |  End | PgUp | KC_LCBR -> NO_LCBR_MAC  KC_DOT  KC_ASTR -> NO_ASTR  KC_AMPR -> NO_AMPR  TD_RCBR -> NO_RCBR_MAC  TD_TILD -> NO_TILD
   // |-----------------------------------------------------------------------------------|
-  // |   (  |   ^  |   %  |   €  |   )  |      |      |   `  | Left | Down | Right| PgDn | PS_LPRN -> NO_LPRN  PS_CIRC -> NO_CIRC  PS_PERC  PS_DLR -> NO_DLR_MAC  KC_RPRN -> NO_RPRN  TD_GRV -> NO_ACUT_MAC
+  // |   (  |   ^  |   %  |   €  |   )  |      |      |   "  | Left | Down | Right| PgDn | PS_LPRN -> NO_LPRN  PS_CIRC -> NO_CIRC  PS_PERC  PS_DLR -> NO_DLR_MAC  KC_RPRN -> NO_RPRN  TD_GRV -> NO_ACUT_MAC
   // |-----------------------------------------------------------------------------------|
-  // |   [  |   #  |   @  |   !  |   ]  |      |      |      |      |      |      |      | C_LBRC -> NO_LBRC  KC_HASH  KC_AT -> NO_AT  KC_EXLM  TD_RBRC -> NO_RBRC
+  // |   [  |   #  |   @  |   !  |   ]  |      |      |   `  |      |      |      |      | C_LBRC -> NO_LBRC  KC_HASH  KC_AT -> NO_AT  KC_EXLM  TD_RBRC -> NO_RBRC
   // |-----------------------------------------------------------------------------------|
   // |      |      |      |   \  |   |  |      |      |      |  f() |      |      |      | LT_BSLS -> NO_BSLS_MAC   PS_PIPE -> NO_PIPE_MAC
   // '-----------------------------------------------------------------------------------'
 
   [_SYMBOL] = {
     {NO_LCBR_MAC, KC_DOT, NO_ASTR, NO_AMPR, NO_RCBR_MAC, _______, _______, NO_TILD, KC_HOME, KC_UP,   KC_END,  KC_PGUP},
-    {NO_LPRN, NO_CIRC, PS_PERC, NO_DLR_MAC,  NO_RPRN, _______, _______, NO_ACUT_MAC, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN},
-    {NO_LBRC, KC_HASH, NO_AT,   KC_EXLM, NO_RBRC, _______, _______, _______, _______, _______, _______, _______},
+    {NO_LPRN, NO_CIRC, PS_PERC, NO_DLR_MAC,  NO_RPRN, _______, _______, NO_QUO2, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN},
+    {NO_LBRC, KC_HASH, NO_AT, KC_EXLM, NO_RBRC, _______, _______, NO_ACUT_MAC, _______, _______, _______, _______},
     {___x___, ___x___, ___x___, NO_BSLS_MAC, NO_PIPE_MAC, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, ___x___},
   },
 
