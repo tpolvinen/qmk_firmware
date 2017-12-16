@@ -230,7 +230,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |------+------+------+------+------+-------------+------+------+------+------+------|
   // |   A  |   R  |   <  |   >  |   ~  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  |
   // |------+------+------+------+------+------|------+------+------+------+------+------|
-  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   K  |   H  |   ;  |   :  |   Ä  | // ; and : added here; / and ? -> RSHIFT
+  // |   Z  |   X  |   !  |   =  |   `  | Caps |^Shift|   K  |   H  |   ;  |   :  |   Ä  | // ; and : added here; / and ? -> RSHIFT
   // |------+------+------+------+------+------+------+------+------+------+------+------|
   // | Ctrl |  GUI |  Alt |  Esc |  f() |  Tab |  Del |   -  | Left | Down |  Up  | Right|
   // `-----------------------------------------------------------------------------------'
@@ -238,7 +238,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_LSHIFT] = {
     {S(KC_Q), S(KC_W), NO_LCBR_MAC, NO_RCBR_MAC, NO_DLR_MAC, OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), S(NO_OSLH)},  // S(KC_F) -> NO_LCBR_MAC  S(KC_P) -> NO_RCBR_MAC  S(KC_B) -> NO_DLR_MAC
     {S(KC_A), S(KC_R), NO_LESS_MAC, NO_GRTR_MAC, NO_TILD, OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O)}, // S(KC_S) -> NO_LESS_MAC  S(KC_T) -> NO_GRTR_MAC  S(KC_G) -> NO_TILD
-    {S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), S(KC_COMM), S(KC_DOT), S(NO_AE)},
+    {S(KC_Z), S(KC_X), KC_EXLM, NO_EQL, NO_ACUT_MAC, TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), S(KC_COMM), S(KC_DOT), S(NO_AE)},  // S(KC_C) -> KC_EXLM  S(KC_D) -> NO_EQL S(KC_V) -> NO_ACUT_MAC
     {OS_CTL,  OS_GUI,  OS_ALT,  LT_ESC,  ___fn__, LT_TAB,  KC_DEL,  NO_MINS, PS_LEFT, S_DOWN,  S_UP,    S_RGHT },  // KC_MINS -> NO_MINS
   },
 
@@ -394,14 +394,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |-----------------------------------------------------------------------------------|
   // |      |      |      |      |      |      |      |      |  F1  |  F2  |  F3  |  F10 |
   // |-----------------------------------------------------------------------------------|
-  // |      |      |      |      |      |  f() |      |   +  |      |      |      |      | KC_PLUS -> NO_PLUS
+  // |      |      |      |      |      |  f() |      |   +  |      |      |      |      |
   // '-----------------------------------------------------------------------------------'
 
   [_FNCKEY] = {
     {_______, _______, _______, _______, _______, _______, _______, _______, KC_F7,   KC_F8,   KC_F9,   KC_F12 },
     {OS_CTL,  OS_GUI,  OS_ALT,  OS_SFT,  _______, _______, _______, _______, KC_F4,   KC_F5,   KC_F6,   KC_F11 },
     {_______, _______, _______, _______, _______, _______, _______, _______, KC_F1,   KC_F2,   KC_F3,   KC_F10 },
-    {_______, _______, _______, _______, _______, ___fn__, _______, NO_PLUS, _______, _______, _______, _______},
+    {_______, _______, _______, _______, _______, ___fn__, _______, NO_PLUS, _______, _______, _______, _______}, // KC_PLUS -> NO_PLUSP
   },
 
 // .................................................................. Short Cuts
