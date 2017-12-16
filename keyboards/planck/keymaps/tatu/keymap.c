@@ -200,6 +200,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 // .............................................................. Colemak Mod-DH
+// http://www.keyboard-layout-editor.com/#/gists/f69e4a658b7ec911f4b7340d3081963a
 #ifdef COLEMAK
   // ,-----------------------------------------------------------------------------------.
   // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   ö  |
