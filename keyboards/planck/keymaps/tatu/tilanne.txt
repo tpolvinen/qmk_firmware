@@ -1,3 +1,5 @@
+Central columns need to be fixed!!!
+
 _BASE
 qwfpb	jluyö
 arstg	mneio
@@ -11,7 +13,7 @@ ZX!=´ 	KH;:Ä
 _RSHIFT
 QWFPB 	^[]YÅ
 ARSTG   |()IO
-ZXCDV 	KH/?å
+ZXCDV 	*\/?å
     _
 
 _NUMBER
