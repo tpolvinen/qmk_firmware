@@ -198,10 +198,10 @@ enum tap_dance {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
-
 // .............................................................. Colemak Mod-DH
-// http://www.keyboard-layout-editor.com/#/gists/f69e4a658b7ec911f4b7340d3081963a
+
 #ifdef COLEMAK
+  // http://www.keyboard-layout-editor.com/#/gists/f69e4a658b7ec911f4b7340d3081963a
   // ,-----------------------------------------------------------------------------------.
   // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   ö  |
   // |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -226,6 +226,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {OS_CTL,  OS_GUI,  OS_ALT,  LT_ESC,  TD_SPC,  LT_TAB,  LT_BSPC,  TD_ENT, LT_LEFT, AT_DOWN, GT_UP,   CT_RGHT},
   },
 
+  // http://www.keyboard-layout-editor.com/#/gists/5248fe0cb848118552a5113587a16b62
   // ,-----------------------------------------------------------------------------------.
   // |   Q  |   W  |   {  |   }  |   €  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   Ö  |
   // |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -243,6 +244,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {OS_CTL,  OS_GUI,  OS_ALT,      LT_ESC,       ___fn__,      LT_TAB, KC_DEL,  NO_MINS, PS_LEFT, S_DOWN,  S_UP, S_RGHT },  // KC_MINS -> NO_MINS
   },
 
+  //  http://www.keyboard-layout-editor.com/#/gists/10d6e05e9db760e1e2a0fd7d44ca0aa3
   // ,-----------------------------------------------------------------------------------.
   // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   ^  |   [  |   ]  |   Y  |   Å  |
   // |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -283,9 +285,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   },
 
 // ......................................................... Number Keypad Layer
-//
-// http://www.keyboard-layout-editor.com/#/gists/369b861dcae7d219a11ea9b8fbfe88f1
 
+  // http://www.keyboard-layout-editor.com/#/gists/41a5841daff39461af667308282826eb
   // .-----------------------------------------------------------------------------------.
   // |      |   F  |   E  |   D  |      |      |      |   /  |   7  |   8  |   9  |   *  | KC_SLSH -> NO_SLSH  KC_ASTR -> NO_ASTR
   // |-----------------------------------------------------------------------------------|
@@ -293,8 +294,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |-----------------------------------------------------------------------------------|
   // |      |   #  |   X  |   G  |      |      |      |   ,  |   1  |   2  |   3  |   +  | KC_PLUS -> NO_PLUS
   // |-----------------------------------------------------------------------------------|
-  // |      |      |      |  f() |      |       |      |  0  |   =  |      |      |      | LT_EQL -> NO_EQL
-  // |      |      |      |  f() |      |       |      |  =  |   0  |      |      |      |
+  // |      |      |      |  f() |      |      |      |   0  |   =  |      |      |      | LT_EQL -> NO_EQL
+  // |      |      |      |  f() |      |      |      |   =  |   0  |      |      |      |
   // '-----------------------------------------------------------------------------------'
 
   [_NUMBER] = {
@@ -308,6 +309,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #endif
   },
 
+  // http://www.keyboard-layout-editor.com/#/gists/3b5cb8fcda59380d56664d6daf4f92a7
   // .-----------------------------------------------------------------------------------.
   // |      |      |      |      |      |      |      |   {  |   &  |   ?  |   :  |   }  | KC_LCBR -> NO_LCBR_MAC  KC_AMPR -> NO_AMPR  KC_QUES -> NO_QUES KC_COLN -> NO_COLN  -> NO_RCBR_MAC
   // |-----------------------------------------------------------------------------------|
@@ -326,15 +328,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   },
 
 // ..................................................... Symbol Navigation Layer
-//
-// http://www.keyboard-layout-editor.com/#/gists/df5aa22deeca8a811e0c7a86a0269d8f
 
+  // http://www.keyboard-layout-editor.com/#/gists/002d5c4f0148d1f780c07b72f9546c97
   // .-----------------------------------------------------------------------------------.
   // |   {  |   .  |   *  |   &  |   }  |      |      |   ~  | Home |  Up  |  End | PgUp | KC_LCBR -> NO_LCBR_MAC  KC_DOT  KC_ASTR -> NO_ASTR  KC_AMPR -> NO_AMPR  TD_RCBR -> NO_RCBR_MAC  TD_TILD -> NO_TILD
   // |-----------------------------------------------------------------------------------|
   // |   (  |   ^  |   %  |   €  |   )  |      |      |   "  | Left | Down | Right| PgDn | PS_LPRN -> NO_LPRN  PS_CIRC -> NO_CIRC  PS_PERC  PS_DLR -> NO_DLR_MAC  KC_RPRN -> NO_RPRN  TD_GRV -> NO_ACUT_MAC
   // |-----------------------------------------------------------------------------------|
-  // |   [  |   #  |   @  |   !  |   ]  |      |      |   `  |      |      |      |      | C_LBRC -> NO_LBRC  KC_HASH  KC_AT -> NO_AT  KC_EXLM  TD_RBRC -> NO_RBRC
+  // |   [  |   #  |   @  |   !  |   ]  |      |      |   ´  |      |      |      |      | C_LBRC -> NO_LBRC  KC_HASH  KC_AT -> NO_AT  KC_EXLM  TD_RBRC -> NO_RBRC
   // |-----------------------------------------------------------------------------------|
   // |      |      |      |   \  |   |  |      |      |      |  f() |      |      |      | LT_BSLS -> NO_BSLS_MAC   PS_PIPE -> NO_PIPE_MAC
   // '-----------------------------------------------------------------------------------'
@@ -346,6 +347,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {___x___, ___x___, ___x___, NO_BSLS_MAC, NO_PIPE_MAC, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, ___x___},
   },
 
+  // http://www.keyboard-layout-editor.com/#/gists/b381b4787a152dcf7ef2fa8e9c23c0c8
   // .-----------------------------------------------------------------------------------.
   // |      |   ?  |   +  |   ~  |      |      |      |      |      |      |      |      | KC_QUES -> NO_QUES KC_PLUS -> NO_PLUS KC_TILD -> NO_TILD
   // |-----------------------------------------------------------------------------------|
@@ -364,9 +366,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   },
 
 // ............................................................... Mouse Actions
-//
-// http://www.keyboard-layout-editor.com/#/gists/863abbf3ae716a267b60337a953588d5
-
+ 
+  // http://www.keyboard-layout-editor.com/#/gists/81bffa133162c8e74f50157ac4b7158a
   // .-----------------------------------------------------------------------------------.
   // |      |      |      |      |      |      |      |      | Left |  Up  | Right|  Up  |
   // |-----------------------------------------------------------------------------------|
@@ -385,9 +386,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   },
 
 // ............ .................................................. Function Keys
-//
-// http://www.keyboard-layout-editor.com/#/gists/dc580fd2504d1328913f8044a9861378
 
+  // http://www.keyboard-layout-editor.com/#/gists/877e8fd3b5b2e907f23b9466459833a1
   // .-----------------------------------------------------------------------------------.
   // |      |      |      |      |      |      |      |      |  F7  |  F8  |  F9  |  F12 |
   // |-----------------------------------------------------------------------------------|
