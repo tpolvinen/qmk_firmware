@@ -1,12 +1,10 @@
 // To flash planck firmware
 // ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
-//   Reset keyboard or press hw reset button on base (hole)
 //
-//   cd qmk_firmware/keyboards/planck
-//   sudo make KEYMAP=sdothum dfu
-//
-//   sudo make clean          (good practice before flashing)
-//   sudo make KEYMAP=sdothum (to compile check)
+//   cd qmk_firmware
+//   make planck/rev4:tatu:clean (good practice before flashing)
+//   Reset keyboard or press hw reset button on base (hole).
+//   make planck/rev4:tatu:dfu
 //
 // Package requirements (for arch linux)
 // ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
@@ -25,7 +23,7 @@
 //   with left hand modifiers
 //
 //   #define PRIVATE_STRING includes private_string.h, a user defined code
-//   block for the PRIV tap dance e.g. SEND_STRING("secret messape"),
+//   block for the PRIV tap dance e.g. SEND_STRING("secret message"),
 //   see function private()
 //
 // Modifier clusters
@@ -38,18 +36,19 @@
 //
 // Hint
 // ▔▔▔▔
-//   For sculpted keycaps such as Cherry or OEM profile, reverse the Alt, Num,
-//   Shift, Shift, Nav, Sym keycaps for more ergonomic thumb orientation and
-//   actuation
+//   For sculpted keycaps such as Cherry or OEM profile, reverse the six center keycaps 
+//   on the bottom row for more ergonomic thumb orientation and actuation.
 //
 // Code
 // ▔▔▔▔
-//   This source is shamelessly based on the "default" planck layout
+//   tpolvinen: This source is shamelessly based on sdothum´s Ergo Wide Split Layout, 
+//   which in turn "is shamelessly based on the "default" planck layout".
 //
 //   #ifdef/#endif block structures are not indented, as syntax highlighting
 //   in vim is sufficient for identification
 //
 //   c++ commenting style is used throughout
+//   tpolvinen: changes to the original layout have been marked after each line in layout descriptions.
 //
 // Change history
 // ▔▔▔▔▔▔▔▔▔▔▔▔▔▔
@@ -88,7 +87,7 @@ enum planck_keycodes {
   BASE = SAFE_RANGE
  ,PLOVER
  ,PLOVEX
- ,PS_CIRC   // pseudo GUI_T(S(KC_6))            for modified key-codes, see process_record_user()
+ ,PS_CIRC   // pseudo GUI_T(S(KC_6))            for modified key-codes, see process_record_user() // PS_CIRC -> NO_CIRC ???
  ,PS_DLR    // pseudo SFT_T(S(KC_4))            for modified key-codes, see process_record_user()
  ,PS_PERC   // pseudo ALT_T(S(KC_5))            for modified key-codes, see process_record_user()
  ,PS_LPRN   // pseudo CTL_T(S(KC_9))            for modified key-codes, see process_record_user()
@@ -186,14 +185,14 @@ enum tap_dance {
 #undef _______
 #endif
 #define _______ KC_NO
-#define COPY    LCTL(KC_C) // LCTL(KC_C) -> OS_GUI
-#define CUT     LCTL(KC_X)
-#define EOT     LCTL(KC_D)
-#define NAK     LCTL(KC_U)
-#define PASTE   LCTL(KC_V)
-#define UNDO    LCTL(KC_Z)
-#define TMCOPY  LALT(LCTL(KC_C))  
-#define TMPASTE LALT(LCTL(KC_V))
+#define COPY    LGUI(KC_C) // LCTL(KC_C) -> LGUI(KC_C)
+#define CUT     LGUI(KC_X) // LCTL(KC_X) -> LGUI(KC_X)
+#define EOT     LGUI(KC_D) // LCTL(KC_D) -> LGUI(KC_D)   Sorry I haven´t a clue what this is? Select one by one?
+#define NAK     LGUI(KC_U) // LCTL(KC_U) -> LGUI(KC_U)   Sorry I haven´t a clue what this is? Go back in history?
+#define PASTE   LGUI(KC_V) // LCTL(KC_V) -> LGUI(KC_V)
+#define UNDO    LGUI(KC_Z) // LCTL(KC_Z) -> LGUI(KC_Z)
+#define TMCOPY  LALT(LGUI(KC_C)) // LALT(LCTL(KC_C)) -> Sorry I haven´t a clue what this is?
+#define TMPASTE LALT(LGUI(KC_V)) // LALT(LCTL(KC_V)) -> LALT(LGUI(KC_V))  Paste from history in Sublime Text
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -207,7 +206,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |------+------+------+------+------+-------------+------+------+------+------+------|
   // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  |
   // |------+------+------+------+------+------|------+------+------+------+------+------|
-  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   K  |   H  |   ,  |   .  |   ä  |  // " and ' -> _SYMBOL
+  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   K  |   H  |   ,  |   .  |   ä  |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
   // | Ctrl |  GUI |  Alt |  Esc | Space|  Tab | Bksp |  Ent | Left | Down |  Up  | Right|
   // `-----------------------------------------------------------------------------------'
@@ -215,7 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = {
     {KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    OS_CALT, OS_CGUI,  KC_J,   KC_L,    KC_U,    KC_Y,    NO_OSLH},
     {KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    OS_SALT, OS_SGUI,  KC_M,   KC_N,    KC_E,    KC_I,    KC_O   },
-    {KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    TD_CAPS, OS_CSFT,  KC_K,   KC_H,    KC_COMM, KC_DOT,  NO_AE},
+    {KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    TD_CAPS, OS_CSFT,  KC_K,   KC_H,    KC_COMM, KC_DOT,  NO_AE},   // " and ' -> _SYMBOL
     {OS_CTL,  OS_GUI,  OS_ALT,  LT_ESC,  TD_SPC,  LT_TAB,  LT_BSPC,  TD_ENT, LT_LEFT, AT_DOWN, GT_UP,   CT_RGHT},
   },
 
@@ -228,38 +227,38 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   // http://www.keyboard-layout-editor.com/#/gists/5248fe0cb848118552a5113587a16b62
   // ,-----------------------------------------------------------------------------------.
-  // |   Q  |   W  |   {  |   }  |   €  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   Ö  |
+  // |   Q  |   W  |   {  |   }  |   €  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   Ö  | S(KC_F) -> NO_LCBR_MAC  S(KC_P) -> NO_RCBR_MAC  S(KC_B) -> NO_DLR_MAC
   // |------+------+------+------+------+-------------+------+------+------+------+------|
-  // |   A  |   R  |   <  |   >  |   ~  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  |
+  // |   A  |   R  |   <  |   >  |   ~  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  | S(KC_S) -> NO_LESS_MAC  S(KC_T) -> NO_GRTR_MAC  S(KC_G) -> NO_TILD
   // |------+------+------+------+------+------|------+------+------+------+------+------|
-  // |   Z  |   X  |   !  |   =  |   `  | Caps |^Shift|   K  |   H  |   ;  |   :  |   Ä  | // ; and : added here; / and ? -> RSHIFT
+  // |   Z  |   X  |   !  |   =  |   `  | Caps |^Shift|   K  |   H  |   ;  |   :  |   Ä  | ; and : added here  / and ? -> RSHIFT    S(KC_C) -> KC_EXLM  S(KC_D) -> NO_EQL S(KC_V) -> NO_ACUT_MAC
   // |------+------+------+------+------+------+------+------+------+------+------+------|
   // | Ctrl |  GUI |  Alt |  Esc |  f() |  Tab |  Del |   -  | Left | Down |  Up  | Right|
   // `-----------------------------------------------------------------------------------'
 
   [_LSHIFT] = {
-    {S(KC_Q), S(KC_W), NO_LCBR_MAC, NO_RCBR_MAC,  NO_DLR_MAC,  OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), S(NO_OSLH)},  // S(KC_F) -> NO_LCBR_MAC  S(KC_P) -> NO_RCBR_MAC  S(KC_B) -> NO_DLR_MAC
-    {S(KC_A), S(KC_R), NO_LESS_MAC, NO_GRTR_MAC,  NO_TILD,     OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O)}, // S(KC_S) -> NO_LESS_MAC  S(KC_T) -> NO_GRTR_MAC  S(KC_G) -> NO_TILD
-    {S(KC_Z), S(KC_X), KC_EXLM,     NO_EQL,       NO_ACUT_MAC, TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), S(KC_COMM), S(KC_DOT), S(NO_AE)},  // S(KC_C) -> KC_EXLM  S(KC_D) -> NO_EQL S(KC_V) -> NO_ACUT_MAC
+    {S(KC_Q), S(KC_W), NO_LCBR_MAC, NO_RCBR_MAC,  NO_DLR_MAC,  OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), S(NO_OSLH)}, 
+    {S(KC_A), S(KC_R), NO_LESS_MAC, NO_GRTR_MAC,  NO_TILD,     OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O)},
+    {S(KC_Z), S(KC_X), KC_EXLM,     NO_EQL,       NO_ACUT_MAC, TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), S(KC_COMM), S(KC_DOT), S(NO_AE)}, 
     {OS_CTL,  OS_GUI,  OS_ALT,      LT_ESC,       ___fn__,      LT_TAB, KC_DEL,  NO_MINS, PS_LEFT, S_DOWN,  S_UP, S_RGHT },  // KC_MINS -> NO_MINS
   },
 
   //  http://www.keyboard-layout-editor.com/#/gists/10d6e05e9db760e1e2a0fd7d44ca0aa3
   // ,-----------------------------------------------------------------------------------.
-  // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   ^  |   [  |   ]  |   Y  |   Å  |
+  // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   ^  |   [  |   ]  |   Y  |   Å  | S(KC_J) -> NO_CIRC  S(KC_L) -> NO_LBRC  S(KC_U) -> NO_RBRC
   // |------+------+------+------+------+-------------+------+------+------+------+------|
-  // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   |  |   (  |   )  |   I  |   O  |
+  // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   |  |   (  |   )  |   I  |   O  | S(KC_M) -> NO_PIPE_MAC  S(KC_N) -> NO_LPRN  S(KC_E) -> NO_RPRN
   // |------+------+------+------+------+------|------+------+------+------+------+------|
-  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   *  |   \  |   /  |   ?  |   å  | // ? added here; ~ TD_TILD and ` TD_GRV Symbol -> Navigation Layer
+  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   *  |   \  |   /  |   ?  |   å  | ? added here  ~ TD_TILD and ` TD_GRV -> Navigation Layer    S(KC_K) -> NO_ASTR  S(KC_H) -> NO_BSLS_MAC
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // | Ctrl |  GUI |  Alt | Caps |   _  | ↑Tab | Bksp |  f() | Left | Down |  Up  | Right|
+  // | Ctrl |  GUI |  Alt | Caps |   _  | ↑Tab | Bksp |  f() | Left | Down |  Up  | Right| KC_UNDS -> NO_UNDS
   // `-----------------------------------------------------------------------------------'
 
   [_RSHIFT] = {
-    {S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, NO_CIRC, NO_LBRC, NO_RBRC, S(KC_Y), S(NO_AA)},  // S(KC_J) -> NO_CIRC  S(KC_L) -> NO_LBRC  S(KC_U) -> NO_RBRC
-    {S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, NO_PIPE_MAC, NO_LPRN, NO_RPRN, S(KC_I), S(KC_O)},  // S(KC_M) -> NO_PIPE_MAC  S(KC_N) -> NO_LPRN  S(KC_E) -> NO_RPRN 
-    {S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, NO_ASTR, NO_BSLS_MAC, NO_SLSH, NO_QUES,  NO_AA},  // S(KC_K) -> NO_ASTR  S(KC_H) -> NO_BSLS_MAC
-    {OS_CTL,  OS_GUI,  OS_ALT,  KC_CAPS, NO_UNDS, PS_TAB,  LT_BSPC, ___fn__, PS_LEFT, S_DOWN,  S_UP,    S_RGHT },  // KC_UNDS -> NO_UNDS
+    {S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, NO_CIRC, NO_LBRC, NO_RBRC, S(KC_Y), S(NO_AA)}, 
+    {S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, NO_PIPE_MAC, NO_LPRN, NO_RPRN, S(KC_I), S(KC_O)}, 
+    {S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, NO_ASTR, NO_BSLS_MAC, NO_SLSH, NO_QUES,  NO_AA}, 
+    {OS_CTL,  OS_GUI,  OS_ALT,  KC_CAPS, NO_UNDS, PS_TAB,  LT_BSPC, ___fn__, PS_LEFT, S_DOWN,  S_UP,    S_RGHT }, 
   },
 #endif
 
@@ -333,7 +332,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // .-----------------------------------------------------------------------------------.
   // |   {  |   .  |   *  |   &  |   }  |      |      |   ~  | Home |  Up  |  End | PgUp | KC_LCBR -> NO_LCBR_MAC  KC_DOT  KC_ASTR -> NO_ASTR  KC_AMPR -> NO_AMPR  TD_RCBR -> NO_RCBR_MAC  TD_TILD -> NO_TILD
   // |-----------------------------------------------------------------------------------|
-  // |   (  |   ^  |   %  |   €  |   )  |      |      |   "  | Left | Down | Right| PgDn | PS_LPRN -> NO_LPRN  PS_CIRC -> NO_CIRC  PS_PERC  PS_DLR -> NO_DLR_MAC  KC_RPRN -> NO_RPRN  TD_GRV -> NO_ACUT_MAC
+  // |   (  |   ^  |   %  |   €  |   )  |      |      |   "  | Left | Down | Right| PgDn | PS_LPRN -> NO_LPRN  PS_CIRC -> NO_CIRC  PS_DLR -> NO_DLR_MAC  KC_RPRN -> NO_RPRN  TD_GRV -> NO_ACUT_MAC
   // |-----------------------------------------------------------------------------------|
   // |   [  |   #  |   @  |   !  |   ]  |      |      |   ´  |      |      |      |      | C_LBRC -> NO_LBRC  KC_HASH  KC_AT -> NO_AT  KC_EXLM  TD_RBRC -> NO_RBRC
   // |-----------------------------------------------------------------------------------|
@@ -406,8 +405,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   },
 
 // .................................................................. Short Cuts
-//
-// http://www.keyboard-layout-editor.com/#/gists/aeb9c497167a17c3bc8efb2f1d88be48
 
   // .-----------------------------------------------------------------------------------.
   // |      |      | Copy | Paste|      |      |      |      |      |      |      |      |
@@ -427,8 +424,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   },
 
 // ................................................................ Adjust Layer
-//
-// http://www.keyboard-layout-editor.com/#/gists/08f08c811c7dc502617f0758bce59bf6
 
   // ,-----------------------------------------------------------------------------------.
   // |Plover|      |      |      |      |      |      |      |      |      |      |      |_
@@ -709,7 +704,7 @@ void tap_pair(qk_tap_dance_state_t *state, uint8_t shift, uint16_t left, uint16_
 
 void doublequote(qk_tap_dance_state_t *state, void *user_data)
 {
-  tap_pair(state, S_ALWAYS, NO_AE, NO_AE, 0, 0);
+  tap_pair(state, S_ALWAYS, NO_QUO2, NO_QUO2, 0, 0); // -> NO_QUO2
 }
 
 void grave(qk_tap_dance_state_t *state, void *user_data)
@@ -739,7 +734,7 @@ void lparen_reset(qk_tap_dance_state_t *state, void *user_data)
 
 void quote(qk_tap_dance_state_t *state, void *user_data)
 {
-  tap_pair(state, S_NEVER, NO_AE, NO_AE, 0, 0);
+  tap_pair(state, S_NEVER, NO_QUO2, NO_QUO2, 0, 0); // -> NO_QUO2
 }
 
 void rangle(qk_tap_dance_state_t *state, void *user_data)
@@ -1031,7 +1026,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     case OS_GUI:
       tap_mods(record, KC_LGUI);
       break;
-    case PS_CIRC:
+    case PS_CIRC: // PS_CIRC -> NO_CIRC  ???
       // GUI_T(S(KC_6))
       mt_shift(record, KC_LGUI, KC_6);
       break;

@@ -45,15 +45,6 @@ _FNCKEY
       + 
 
 _EDIT
-...needs a lot of work!
-                                                                                                                        
-TMCOPY 
-195 #define TMCOPY  LALT(LCTL(KC_C))
-COPY
-189 #define COPY    LCTL(KC_C)
-
-535 if (mods & MOD_BIT(KC_LCTL)) {
-    (*f)(KC_LCTL);
 
 _ADJUST
 
