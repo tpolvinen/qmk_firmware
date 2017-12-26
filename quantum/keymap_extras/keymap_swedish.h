@@ -27,7 +27,7 @@
 #undef  NO_CIRC
 #define NO_CIRC LSFT(KC_RBRC)  // ^
 #undef  NO_GRV
-#define NO_GRV  LSFT(NO_BSLS)  //
+#define NO_GRV  LSFT(NO_ACUT)  //LSFT(NO_BSLS) -> LSFT(NO_ACUT)
 #undef  NO_OSLH
 #define NO_OSLH KC_SCLN  // ö
 

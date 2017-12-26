@@ -49,3 +49,25 @@ _EDIT
 _ADJUST
 
 ...and then, face the music and Tap Dance. :D
+
+~ triple tap  ^7 double tap  ^ tap
+“
+´ ‘  `      ´-´ triple tap  ´´ double tap  ´ tap
+
+~  ^7  ^
+“
+´  ‘  `  ´-´  ´´  ´
+
+~  ^7  ^
+“
+´  ‘  `  ´-´  ´´  ´
+
+´  ´´  ´-´  NO_GRV
+
+´  ´´  ´-´  KC_PLUS
+‘   ‘’  ‘-’  KC_PIPE
+<  <<  <-<  KC_TILD
+´  ´´  ´-´  LSFT(KC_PLUS)
+<  <<  <-<  KC_GRV
++  ++  +-+  KC_MINS
+-  --  —KC_SLSH

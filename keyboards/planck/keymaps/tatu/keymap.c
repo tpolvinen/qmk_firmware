@@ -15,7 +15,10 @@
 // Notes
 // ▔▔▔▔▔
 //   ** E R G O   W I D E   S P L I T ** Layout
+//   
+//   For Macs with Swedish/Finnish keyboard layout
 //
+//   
 //   Autocompletion tap dance key pairs (),[],{} are available from the
 //   number/symbol layer, as well as, numerous (un)shift key values
 //
@@ -87,10 +90,10 @@ enum planck_keycodes {
   BASE = SAFE_RANGE
  ,PLOVER
  ,PLOVEX
- ,PS_CIRC   // pseudo GUI_T(S(KC_6))            for modified key-codes, see process_record_user() // PS_CIRC -> NO_CIRC ???
- ,PS_DLR    // pseudo SFT_T(S(KC_4))            for modified key-codes, see process_record_user()
- ,PS_PERC   // pseudo ALT_T(S(KC_5))            for modified key-codes, see process_record_user()
- ,PS_LPRN   // pseudo CTL_T(S(KC_9))            for modified key-codes, see process_record_user()
+// ,PS_CIRC   // pseudo GUI_T(S(KC_6))            for modified key-codes, see process_record_user()
+// ,PS_DLR    // pseudo SFT_T(S(KC_4))            for modified key-codes, see process_record_user()
+// ,PS_PERC   // pseudo ALT_T(S(KC_5))            for modified key-codes, see process_record_user()
+// ,PS_LPRN   // pseudo CTL_T(S(KC_9))            for modified key-codes, see process_record_user()
  ,PS_LEFT   // pseudo LT   (_MOUSE, S(KC_LEFT)) for modified key-codes, see process_record_user()
  ,PS_PIPE   // pseudo LT   (_MOUSE, S(KC_BSLS)) for modified key-codes, see process_record_user()
  ,PS_TAB    // pseudo LT   (_FNCKEY, S(KC_TAB)) for modified key-codes, see process_record_user()
@@ -145,7 +148,7 @@ enum tap_dance {
  ,_LPRN
  ,_LT
  ,_PRIV
- ,_AE
+ //,_AE
  ,_RBRC
  ,_RCBR
  ,_RNGL
@@ -169,7 +172,7 @@ enum tap_dance {
 #define TD_LPRN TD(_LPRN)
 #define TD_LT   TD(_LT)
 #define TD_PRIV TD(_PRIV)                   // compile time macro string, provided in private_string.h
-#define TD_AE TD(_AE)
+//#define TD_AE TD(_AE)
 #define TD_RBRC TD(_RBRC)
 #define TD_RCBR TD(_RCBR)
 #define TD_RNGL TD(_RNGL)
@@ -187,8 +190,8 @@ enum tap_dance {
 #define _______ KC_NO
 #define COPY    LGUI(KC_C) // LCTL(KC_C) -> LGUI(KC_C)
 #define CUT     LGUI(KC_X) // LCTL(KC_X) -> LGUI(KC_X)
-#define EOT     LGUI(KC_D) // LCTL(KC_D) -> LGUI(KC_D)   Sorry I haven´t a clue what this is? Select one by one?
-#define NAK     LGUI(KC_U) // LCTL(KC_U) -> LGUI(KC_U)   Sorry I haven´t a clue what this is? Go back in history?
+#define EOT     LGUI(KC_D) // LCTL(KC_D) -> LGUI(KC_D)   Sorry I haven´t a clue what this is? Select one by one in Sublime Text?
+#define NAK     LGUI(KC_U) // LCTL(KC_U) -> LGUI(KC_U)   Sorry I haven´t a clue what this is? Go back in history in Sublime Text?
 #define PASTE   LGUI(KC_V) // LCTL(KC_V) -> LGUI(KC_V)
 #define UNDO    LGUI(KC_Z) // LCTL(KC_Z) -> LGUI(KC_Z)
 #define TMCOPY  LALT(LGUI(KC_C)) // LALT(LCTL(KC_C)) -> Sorry I haven´t a clue what this is?
@@ -249,7 +252,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |------+------+------+------+------+-------------+------+------+------+------+------|
   // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   |  |   (  |   )  |   I  |   O  | S(KC_M) -> NO_PIPE_MAC  S(KC_N) -> NO_LPRN  S(KC_E) -> NO_RPRN
   // |------+------+------+------+------+------|------+------+------+------+------+------|
-  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   *  |   \  |   /  |   ?  |   å  | ? added here  ~ TD_TILD and ` TD_GRV -> Navigation Layer    S(KC_K) -> NO_ASTR  S(KC_H) -> NO_BSLS_MAC
+  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   *  |   \  |   /  |   ?  |   å  | ? added here  ~ TD_TILD and ` TD_GRV -> _SYMBOL Layer    S(KC_K) -> NO_ASTR  S(KC_H) -> NO_BSLS_MAC
   // |------+------+------+------+------+------+------+------+------+------+------+------|
   // | Ctrl |  GUI |  Alt | Caps |   _  | ↑Tab | Bksp |  f() | Left | Down |  Up  | Right| KC_UNDS -> NO_UNDS
   // `-----------------------------------------------------------------------------------'
@@ -304,23 +307,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef THUMB_0
     {___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, KC_0,    NO_EQL,  ___x___, ___x___, ___x___},
 #else
-    {___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, NO_EQL,  LT_0,    ___x___, ___x___, ___x___}, //LT_0 undefined?
+    {___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, LT_EQL,  LT_0,    ___x___, ___x___, ___x___},
 #endif
   },
 
   // http://www.keyboard-layout-editor.com/#/gists/3b5cb8fcda59380d56664d6daf4f92a7
   // .-----------------------------------------------------------------------------------.
-  // |      |      |      |      |      |      |      |   {  |   &  |   ?  |   :  |   }  | KC_LCBR -> NO_LCBR_MAC  KC_AMPR -> NO_AMPR  KC_QUES -> NO_QUES KC_COLN -> NO_COLN  -> NO_RCBR_MAC
+  // |      |      |      |      |      |      |      |   {  |   &  |   ?  |   :  |   }  | KC_LCBR -> NO_LCBR_MAC  KC_AMPR -> NO_AMPR  KC_QUES -> NO_QUES KC_COLN -> TD_COLN  ? -> NO_RCBR_MAC
   // |-----------------------------------------------------------------------------------|
   // |      |      |      |  f() |      |      |      |   (  |   $  |   %  |   ^  |   )  | TD_LPRN -> NO_LPRN  KC_DLR -> NO_DLR  ? -> NO_CIRC  KC_RPRN -> NO_RPRN
   // |-----------------------------------------------------------------------------------|
-  // |      |      |      |      |      |      |      |   [  |   <  |   ~  |   >  |   ]  | TD_LBRC -> NO_LBRC  KC_LT -> NO_LESS_MAC  KC_TILD -> NO_TILD  KC_GT -> NO_GRTR  KC_RBRC -> NO_RBRC
+  // |      |      |      |      |      |      |      |   [  |   <  |   ~  |   >  |   ]  | KC_LBRC -> NO_LBRC  KC_LT -> NO_LESS_MAC  KC_TILD -> NO_TILD  KC_GT -> NO_GRTR  KC_RBRC -> NO_RBRC
   // |-----------------------------------------------------------------------------------|
   // |      |      |      |  f() |      |      |      |   |  |   \  |      |      |      | -> NO_PIPE_MAC  -> NO_BSLS_MAC
   // '-----------------------------------------------------------------------------------'
 
   [_NUMSYM] = {
-    {_______, _______, _______, ___x___, _______, _______, _______, NO_LCBR_MAC, NO_AMPR, NO_QUES, NO_COLN, NO_RCBR_MAC},
+    {_______, _______, _______, ___x___, _______, _______, _______, NO_LCBR_MAC, NO_AMPR, NO_QUES, TD_COLN, NO_RCBR_MAC},
     {___x___, ___x___, ___x___, ___fn__, _______, _______, _______, NO_LPRN, NO_DLR, KC_PERC, NO_CIRC, NO_RPRN},
     {_______, _______, _______, ___x___, _______, _______, _______, NO_LBRC, NO_LESS_MAC, NO_TILD, NO_GRTR_MAC, NO_RBRC},
     {___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, NO_PIPE_MAC, NO_BSLS_MAC, ___x___, ___x___, ___x___},
@@ -334,15 +337,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |-----------------------------------------------------------------------------------|
   // |   (  |   ^  |   %  |   €  |   )  |      |      |   "  | Left | Down | Right| PgDn | PS_LPRN -> NO_LPRN  PS_CIRC -> NO_CIRC  PS_DLR -> NO_DLR_MAC  KC_RPRN -> NO_RPRN  TD_GRV -> NO_ACUT_MAC
   // |-----------------------------------------------------------------------------------|
-  // |   [  |   #  |   @  |   !  |   ]  |      |      |   ´  |      |      |      |      | C_LBRC -> NO_LBRC  KC_HASH  KC_AT -> NO_AT  KC_EXLM  TD_RBRC -> NO_RBRC
+  // |   [  |   #  |   @  |   !  |   ]  |      |      |   `  |   ´  |   '  |      |      | C_LBRC -> NO_LBRC  KC_HASH  KC_AT -> NO_AT  KC_EXLM  TD_RBRC -> NO_RBRC
   // |-----------------------------------------------------------------------------------|
   // |      |      |      |   \  |   |  |      |      |      |  f() |      |      |      | LT_BSLS -> NO_BSLS_MAC   PS_PIPE -> NO_PIPE_MAC
   // '-----------------------------------------------------------------------------------'
 
   [_SYMBOL] = {
-    {NO_LCBR_MAC, KC_DOT, NO_ASTR, NO_AMPR, NO_RCBR_MAC, _______, _______, NO_TILD, KC_HOME, KC_UP,   KC_END,  KC_PGUP},
-    {NO_LPRN, NO_CIRC, PS_PERC, NO_DLR_MAC,  NO_RPRN, _______, _______, NO_QUO2, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN},
-    {NO_LBRC, KC_HASH, NO_AT, KC_EXLM, NO_RBRC, _______, _______, NO_ACUT_MAC, _______, _______, _______, _______},
+    {TD_LCBR, KC_DOT, NO_ASTR, NO_AMPR, TD_RCBR, _______, _______, TD_TILD, KC_HOME, KC_UP,   KC_END,  KC_PGUP},
+    {TD_LPRN, NO_CIRC, KC_PERC, NO_DLR_MAC, TD_RPRN, _______, _______, TD_DQOT, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN},
+    {TD_LBRC, KC_HASH, NO_AT, KC_EXLM, TD_RBRC, _______, _______, TD_GRV, NO_ACUT, NO_APOS, _______},
     {___x___, ___x___, ___x___, NO_BSLS_MAC, NO_PIPE_MAC, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, ___x___},
   },
 
@@ -359,7 +362,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_SYMREG] = {
     {___x___, NO_QUES, NO_PLUS, NO_TILD, ___x___, _______, _______, _______, ___x___, ___x___, ___x___, ___x___},
-    {___x___, NO_LESS_MAC,  NO_EQL, NO_GRTR_MAC, ___x___, _______, _______, _______, ___fn__, ___x___, ___x___, ___x___},
+    {___x___, NO_LESS_MAC,  NO_EQL, TD_RNGL, ___x___, _______, _______, _______, ___fn__, ___x___, ___x___, ___x___},
     {___x___, KC_3,    KC_2,    KC_1,    ___x___, _______, _______, _______, _______, _______, _______, _______},
     {___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___},
   },
@@ -406,6 +409,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // .................................................................. Short Cuts
 
+// http://www.keyboard-layout-editor.com/#/gists/9c46dc89637cc99d0531ce3702d22236
   // .-----------------------------------------------------------------------------------.
   // |      |      | Copy | Paste|      |      |      |      |      |      |      |      |
   // |--------------------------------------------------------------+------+------+------|
@@ -545,23 +549,192 @@ void tilde(qk_tap_dance_state_t *state, void *user_data)
 {
   // double tap plus down: repeating keycode
   if (state->count > 2) {
-    register_code(KC_LSFT);
-    register_code(KC_GRV);
+    register_code(NO_ALGR);  // KC_LSFT -> NO_ALGR
+    register_code(NO_QUOT);  // KC_GRV -> NO_QUOT
   }
   // tap: keycode
   else {
-    shift_key(KC_GRV);
+    register_code(NO_ALGR);  // shift_key(KC_GRV) -> register_code NO_ALGR & NO_QUOT
+    register_code(NO_QUOT);
     // double tap: unix home directory
     if (state->count > 1) {
-      tap_key(KC_SLSH);
+      unregister_code(NO_ALGR);  // tap_key(KC_SLSH) -> unregister_code(NO_ALGR)  &  shift_key(KC_7);
+      shift_key(KC_7);
     }
   }
 }
 
 void tilde_reset(qk_tap_dance_state_t *state, void *user_data)
 {
-  unregister_code(KC_GRV);
-  unregister_code(KC_LSFT);
+  unregister_code(NO_QUOT);
+  unregister_code(NO_ALGR);
+}
+
+void rcurly(qk_tap_dance_state_t *state, void *user_data)
+{
+  // double tap plus down: repeating keycode
+  if (state->count > 3) {
+    register_code(NO_ALGR);
+    shift_key(KC_9);
+  }
+  // tap: keycode
+  else if (state->count > 2) {
+      register_code(NO_ALGR);
+      shift_key(KC_8);
+      shift_key(KC_9);
+      unregister_code(NO_ALGR);
+      tap_key(KC_LEFT);
+  } 
+  else if (state->count > 1) {
+      register_code(NO_ALGR);
+      shift_key(KC_8);
+      shift_key(KC_9);
+  }
+  else {
+    register_code(NO_ALGR);
+    shift_key(KC_9);
+  }
+}
+
+void rcurly_reset(qk_tap_dance_state_t *state, void *user_data)
+{
+  unregister_code(NO_ALGR);
+}
+
+void lcurly(qk_tap_dance_state_t *state, void *user_data)
+{
+  // double tap plus down: repeating keycode
+  if (state->count > 3) {
+    register_code(NO_ALGR);
+    shift_key(KC_8);
+  }
+  // tap: keycode
+  else if (state->count > 2) {
+      register_code(NO_ALGR);
+      shift_key(KC_8);
+      shift_key(KC_9);
+      unregister_code(NO_ALGR);
+      tap_key(KC_LEFT);
+  } 
+  else if (state->count > 1) {
+      register_code(NO_ALGR);
+      shift_key(KC_8);
+      shift_key(KC_9);
+  }
+  else {
+    register_code(NO_ALGR);
+    shift_key(KC_8);
+  }
+}
+
+void lcurly_reset(qk_tap_dance_state_t *state, void *user_data)
+{
+  unregister_code(NO_ALGR);
+}
+
+void rbrace(qk_tap_dance_state_t *state, void *user_data)
+{
+  // double tap plus down: repeating keycode
+  if (state->count > 3) {
+    register_code(KC_RALT);
+    shift_key(KC_9);
+  }
+  // tap: keycode
+  else if (state->count > 2) {
+      register_code(KC_RALT);
+      tap_key(KC_8);
+      tap_key(KC_9);
+      unregister_code(KC_RALT);
+      tap_key(KC_LEFT);
+  } 
+  else if (state->count > 1) {
+      register_code(KC_RALT);
+      tap_key(KC_8);
+      tap_key(KC_9);
+  }
+  else {
+    register_code(KC_RALT);
+    tap_key(KC_9);
+  }
+}
+
+void rbrace_reset(qk_tap_dance_state_t *state, void *user_data)
+{
+  unregister_code(KC_RALT);
+}
+
+
+void lbrace(qk_tap_dance_state_t *state, void *user_data)
+{
+  // double tap plus down: repeating keycode
+  if (state->count > 3) {
+    register_code(KC_RALT);
+    shift_key(KC_8);
+  }
+  // tap: keycode
+  else if (state->count > 2) {
+      register_code(KC_RALT);
+      tap_key(KC_8);
+      tap_key(KC_9);
+      unregister_code(KC_RALT);
+      tap_key(KC_LEFT);
+  } 
+  else if (state->count > 1) {
+      register_code(KC_RALT);
+      tap_key(KC_8);
+      tap_key(KC_9);
+  }
+  else {
+    register_code(KC_RALT);
+    tap_key(KC_8);
+  }
+}
+
+void lbrace_reset(qk_tap_dance_state_t *state, void *user_data)
+{
+  unregister_code(KC_RALT);
+}
+
+void rangle(qk_tap_dance_state_t *state, void *user_data)
+{
+  // double tap plus down: repeating keycode
+  if (state->count > 3) {
+    tap_key(KC_GRV);
+  }
+  // tap: keycode
+  else if (state->count > 2) {
+      tap_key(KC_GRV);
+      shift_key(KC_GRV);
+      tap_key(KC_LEFT);
+  } 
+  else if (state->count > 1) {
+      tap_key(KC_GRV);
+      shift_key(KC_GRV);
+  }
+  else {
+    shift_key(KC_GRV);
+  }
+}
+
+void rparen(qk_tap_dance_state_t *state, void *user_data)
+{
+  // double tap plus down: repeating keycode
+  if (state->count > 3) {
+    shift_key(KC_9);
+  }
+  // tap: keycode
+  else if (state->count > 2) {
+      shift_key(KC_8);
+      shift_key(KC_9);
+      tap_key(KC_LEFT);
+  } 
+  else if (state->count > 1) {
+      shift_key(KC_8);
+      shift_key(KC_9);
+  }
+  else {
+    shift_key(KC_9);
+  }
 }
 
 // .................................................... Triple Dance Shift/Layer
@@ -704,63 +877,63 @@ void tap_pair(qk_tap_dance_state_t *state, uint8_t shift, uint16_t left, uint16_
 
 void doublequote(qk_tap_dance_state_t *state, void *user_data)
 {
-  tap_pair(state, S_ALWAYS, NO_QUO2, NO_QUO2, 0, 0); // -> NO_QUO2
+  tap_pair(state, S_ALWAYS, NO_QUO2, NO_QUO2, 0, 0); // KC_QUOT -> NO_QUO2
 }
 
 void grave(qk_tap_dance_state_t *state, void *user_data)
 {
-  tap_pair(state, S_NEVER, KC_GRV, KC_GRV, 0, 0);
+  tap_pair(state, S_ALWAYS, NO_ACUT, NO_ACUT, 0, 0); // S_NEVER, KC_GRV -> S_ALWAYS, NO_ACUT
 }
 
-void lbrace(qk_tap_dance_state_t *state, void *user_data)
+/*void lbrace(qk_tap_dance_state_t *state, void *user_data)
 {
   tap_pair(state, S_NEVER, KC_LBRC, KC_RBRC, 0, 0);
-}
+}*/
 
-void lcurly(qk_tap_dance_state_t *state, void *user_data)
+/*void lcurly(qk_tap_dance_state_t *state, void *user_data)
 {
   tap_pair(state, S_ALWAYS, KC_LBRC, KC_RBRC, 0, 0);
-}
+}*/
 
 void lparen(qk_tap_dance_state_t *state, void *user_data)
 {
-  tap_pair(state, S_ALWAYS, KC_9, KC_0, KC_LCTL, 0);
+  tap_pair(state, S_ALWAYS, KC_8, KC_9, 0, 0);
 }
 
-void lparen_reset(qk_tap_dance_state_t *state, void *user_data)
+/*void lparen_reset(qk_tap_dance_state_t *state, void *user_data)
 {
   unregister_code(KC_LCTL);
-}
+}*/
 
-void quote(qk_tap_dance_state_t *state, void *user_data)
+/*void quote(qk_tap_dance_state_t *state, void *user_data)
 {
-  tap_pair(state, S_NEVER, NO_QUO2, NO_QUO2, 0, 0); // -> NO_QUO2
-}
+  tap_pair(state, S_NEVER, NO_QUO2, NO_QUO2, 0, 0); // KC_QUOT -> NO_QUO2
+}*/
 
-void rangle(qk_tap_dance_state_t *state, void *user_data)
+/*void rangle(qk_tap_dance_state_t *state, void *user_data)
 {
-  tap_pair(state, S_ALWAYS, KC_COMM, KC_DOT, 0, CLOSE);
-}
+  tap_pair(state, S_NEVER, NO_LESS_MAC, NO_GRTR_MAC, 0, CLOSE); //S_ALWAYS, KC_COMM, KC_DOT, 0, CLOSE)
+}*/
 
-void rbrace(qk_tap_dance_state_t *state, void *user_data)
+/*void rbrace(qk_tap_dance_state_t *state, void *user_data)
 {
   tap_pair(state, S_NEVER, KC_LBRC, KC_RBRC, 0, CLOSE);
-}
+}*/
 
-void rcurly(qk_tap_dance_state_t *state, void *user_data)
+/*void rcurly(qk_tap_dance_state_t *state, void *user_data)
 {
-  tap_pair(state, S_ALWAYS, KC_LBRC, KC_RBRC, 0, CLOSE);
-}
+  tap_pair(state, S_ALWAYS, NO_LBRC, NO_RBRC, 0, CLOSE); // KC_LBRC -> NO_LBRC
+}*/
 
-void rparen(qk_tap_dance_state_t *state, void *user_data)
+/*void rparen(qk_tap_dance_state_t *state, void *user_data)
 {
-  tap_pair(state, S_ALWAYS, KC_9, KC_0, KC_LCTL, CLOSE);
-}
+  tap_pair(state, S_ALWAYS, KC_9, KC_8, 0, 0);  // S_ALWAYS, KC_9, KC_0, KC_LCTL, CLOSE
+}*/
 
-void rparen_reset(qk_tap_dance_state_t *state, void *user_data)
+/*void rparen_reset(qk_tap_dance_state_t *state, void *user_data)
 {
   unregister_code(KC_LCTL);
-}
+}*/
 
 // ............................................................ Tap Dance Insert
 
@@ -768,12 +941,12 @@ void colon(qk_tap_dance_state_t *state, void *user_data)
 {
   if (state->count > 1) {
     tap_key(KC_SPC);
-    shift_key(KC_SCLN);
-    shift_key(KC_SCLN);
+    shift_key(KC_DOT);  // KC_SCLN -> KC_DOT
+    shift_key(KC_DOT);  // KC_SCLN -> KC_DOT
     tap_key(KC_SPC);
   }
   else {
-    shift_key(KC_SCLN);
+    shift_key(KC_DOT);  // KC_SCLN -> KC_DOT
   }
   reset_tap_dance(state);
 }
@@ -854,18 +1027,18 @@ qk_tap_dance_action_t tap_dance_actions[] = {
  ,[_COMM] = ACTION_TAP_DANCE_FN         (comma)
  ,[_DQOT] = ACTION_TAP_DANCE_FN         (doublequote)
  ,[_ENT]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, enter, enter_reset)
- ,[_GT]   = ACTION_TAP_DANCE_FN         (greater)  // _GT -> _GRTR_MAC
+ ,[_GT]   = ACTION_TAP_DANCE_FN         (greater)
  ,[_GRV]  = ACTION_TAP_DANCE_FN         (grave)  
- ,[_LBRC] = ACTION_TAP_DANCE_FN         (lbrace)
- ,[_LCBR] = ACTION_TAP_DANCE_FN         (lcurly)
- ,[_LPRN] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, lparen, lparen_reset)
- ,[_LT]   = ACTION_TAP_DANCE_FN         (lesser)  // _LT -> _LESS_MAC
+ ,[_LBRC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, lbrace, lbrace_reset)
+ ,[_LCBR] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, lcurly, rcurly_reset)
+ ,[_LPRN] = ACTION_TAP_DANCE_FN         (lparen)
+ ,[_LT]   = ACTION_TAP_DANCE_FN         (lesser)
  ,[_PRIV] = ACTION_TAP_DANCE_FN         (private)
- ,[_AE] = ACTION_TAP_DANCE_FN         (quote)
- ,[_RBRC] = ACTION_TAP_DANCE_FN         (rbrace)
- ,[_RCBR] = ACTION_TAP_DANCE_FN         (rcurly)
+ //,[_AE] = ACTION_TAP_DANCE_FN         (quote)
+ ,[_RBRC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, rbrace, rbrace_reset)
+ ,[_RCBR] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, rcurly, rcurly_reset)
  ,[_RNGL] = ACTION_TAP_DANCE_FN         (rangle)
- ,[_RPRN] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, rparen, rparen_reset)
+ ,[_RPRN] = ACTION_TAP_DANCE_FN         (rparen)
  ,[_SEND] = ACTION_TAP_DANCE_FN         (send)
  ,[_SPC]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, space, space_reset)
  ,[_TILD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, tilde, tilde_reset)
@@ -1026,33 +1199,33 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     case OS_GUI:
       tap_mods(record, KC_LGUI);
       break;
-    case PS_CIRC: // PS_CIRC -> NO_CIRC  ???
+    /*case PS_CIRC: // Not really needed since NO_CIRC is in layers.
       // GUI_T(S(KC_6))
       mt_shift(record, KC_LGUI, KC_6);
       break;
-    case PS_DLR:
+    case PS_DLR:  // Not really needed since NO_DLR_MAC is in layers.
       // SFT_T(S(KC_4))
       mt_shift(record, KC_LSFT, KC_4);
       break;
-    case PS_LPRN:
+    case PS_LPRN: // Not really needed since NO_LPRN is in layers.
       // CTL_T(S(KC_9))
       mt_shift(record, KC_LCTL, KC_9);
       break;
     case PS_PERC:
       // ALT_T(S(KC_5))
       mt_shift(record, KC_LALT, KC_5);
-      break;
+      break;*/
     case PS_LEFT:
       tap_layer(record, _MOUSE);
       // LT (_MOUSE, S(KC_LEFT)) left right combination layer
       com_layer(record, RIGHT, KC_LEFT, SHIFT, _MOUSE, _LSHIFT);
       break;
-    case PS_PIPE:
+    case PS_PIPE: // Not really needed since NO_PIPE_MAC is in layers. Or is it???
       tap_layer(record, _MOUSE);
       // LT (_MOUSE, S(KC_BSLS)) left right combination layer
       com_layer(record, LEFT, KC_BSLS, SHIFT, _MOUSE, _SYMBOL);
       break;
-    case PS_TAB:
+    case PS_TAB: // Not sure whether this is needed in my case?
       // LT (_FNCKEY, S(KC_TAB)) emulation
       lt_shift(record, KC_TAB, _FNCKEY);
       break;
