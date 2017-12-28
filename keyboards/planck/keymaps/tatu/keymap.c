@@ -20,7 +20,7 @@
 //
 //   
 //   Autocompletion tap dance key pairs (),[],{} are available from the
-//   number/symbol layer, as well as, numerous (un)shift key values
+//   symbol layer _SYMBOL, as well as numerous (un)shift key values
 //
 //   The navigation pad provides a single hand right thumb activated cluster
 //   with left hand modifiers
@@ -343,9 +343,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // '-----------------------------------------------------------------------------------'
 
   [_SYMBOL] = {
-    {TD_LCBR, KC_DOT, NO_ASTR, NO_AMPR, TD_RCBR, _______, _______, TD_TILD, KC_HOME, KC_UP,   KC_END,  KC_PGUP},
-    {TD_LPRN, NO_CIRC, KC_PERC, NO_DLR_MAC, TD_RPRN, _______, _______, TD_DQOT, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN},
-    {TD_LBRC, KC_HASH, NO_AT, KC_EXLM, TD_RBRC, _______, _______, TD_GRV, NO_ACUT, NO_APOS, _______},
+    {TD_LCBR, KC_DOT, NO_ASTR, NO_AMPR, TD_RCBR,          _______, _______, TD_TILD, KC_HOME, KC_UP,   KC_END,  KC_PGUP},
+    {TD_LPRN, NO_CIRC, KC_PERC, NO_DLR_MAC, TD_RPRN,      _______, _______, TD_DQOT, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN},
+    {TD_LBRC, KC_HASH, NO_AT, KC_EXLM, TD_RBRC,           _______, _______, TD_GRV, NO_ACUT, NO_APOS, _______},
     {___x___, ___x___, ___x___, NO_BSLS_MAC, NO_PIPE_MAC, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, ___x___},
   },
 
