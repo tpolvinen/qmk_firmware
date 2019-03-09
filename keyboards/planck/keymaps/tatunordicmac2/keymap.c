@@ -2,15 +2,10 @@
 // ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 //
 //   cd qmk_firmware
-//   make planck/rev4:tatu:clean (good practice before flashing)
+//   make planck/rev6:tatunordicmac2:clean (good practice before flashing)
 //   Reset keyboard or press hw reset button on base (hole).
-//   make planck/rev4:tatu:dfu
+//   make planck/rev6:tatunordicmac2:dfu-util
 //
-// Package requirements (for arch linux)
-// ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
-//   avr-gcc-atmel
-//   avr-libc-atmel
-//   dfu-programmer
 //
 // Notes
 // ▔▔▔▔▔
@@ -75,7 +70,7 @@ enum planck_layers {
  ,_SHIFT
  ,_LSHIFT
  ,_RSHIFT
- ,_PLOVER
+// ,_PLOVER
  ,_NUMBER
  ,_NUMSYM
  ,_SYMBOL
@@ -217,7 +212,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_ortho_4x12(
     KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    OS_CALT, OS_CGUI,  KC_J,   KC_L,    KC_U,    KC_Y,    NO_OSLH,
     KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    OS_SALT, OS_SGUI,  KC_M,   KC_N,    KC_E,    KC_I,    KC_O,
-    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    TD_CAPS, OS_CSFT,  KC_K,   KC_H,    KC_COMM, KC_DOT,  NO_AE,   // " and ' -> _SYMBOL
+    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    TD_CAPS, OS_CSFT,  KC_K,   KC_H,    KC_COMM, KC_DOT,  NO_AE,   // " and ' -> _LSHIFT and _RSHIFT layers
     OS_CTL,  OS_GUI,  OS_ALT,  LT_ESC,  TD_SPC,  LT_TAB,  LT_BSPC,  TD_ENT, LT_LEFT, AT_DOWN, GT_UP,   CT_RGHT
   ),
 
@@ -230,27 +225,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   // http://www.keyboard-layout-editor.com/#/gists/5248fe0cb848118552a5113587a16b62
   // ,-----------------------------------------------------------------------------------.
-  // |   Q  |   W  |   {  |   }  |   €  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   Ö  | S(KC_F) -> NO_LCBR_MAC  S(KC_P) -> NO_RCBR_MAC  S(KC_B) -> NO_DLR_MAC
+  // |   Q  |   '  |   {  |   }  |   €  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   Ö  | S(KC_F) -> NO_LCBR_MAC  S(KC_P) -> NO_RCBR_MAC  S(KC_B) -> NO_DLR_MAC
   // |------+------+------+------+------+-------------+------+------+------+------+------|
-  // |   A  |   R  |   <  |   >  |   ~  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  | S(KC_S) -> NO_LESS_MAC  S(KC_T) -> NO_GRTR_MAC  S(KC_G) -> NO_TILD
+  // |   A  |   "  |   <  |   >  |   ~  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  | S(KC_S) -> NO_LESS_MAC  S(KC_T) -> NO_GRTR_MAC  S(KC_G) -> NO_TILD
   // |------+------+------+------+------+------|------+------+------+------+------+------|
-  // |   Z  |   X  |   !  |   =  |   `  | Caps |^Shift|   K  |   H  |   ;  |   :  |   Ä  | ; and : added here  / and ? -> RSHIFT    S(KC_C) -> KC_EXLM  S(KC_D) -> NO_EQL S(KC_V) -> NO_ACUT_MAC
+  // |   Z  |   X  |   !  |   =  |   `  | Caps |^Shift|   K  |   H  |   ;  |   :  |   Ä  | ; and : added here  / and ? -> RSHIFT    S(KC_C) -> KC_EXLM  S(KC_D) -> NO_EQL S(KC_V) -> NO_GRV
   // |------+------+------+------+------+------+------+------+------+------+------+------|
   // | Ctrl |  GUI |  Alt |  Esc |  f() |  Tab |  Del |   -  | Left | Down |  Up  | Right|
   // `-----------------------------------------------------------------------------------'
 
   [_LSHIFT] = LAYOUT_ortho_4x12(
-    S(KC_Q), S(KC_W), NO_LCBR_MAC, NO_RCBR_MAC,  NO_DLR_MAC,  OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), S(NO_OSLH), 
-    S(KC_A), S(KC_R), NO_LESS_MAC, NO_GRTR_MAC,  NO_TILD,     OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O),
-    S(KC_Z), S(KC_X), KC_EXLM,     NO_EQL,       NO_ACUT_MAC, TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), S(KC_COMM), S(KC_DOT), S(NO_AE), 
+    S(KC_Q), NO_APOS, NO_LCBR_MAC, NO_RCBR_MAC,  NO_DLR_MAC,  OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), S(NO_OSLH), 
+    S(KC_A), TD_DQOT, NO_LESS_MAC, NO_GRTR_MAC,  NO_TILD,     OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O),
+    S(KC_Z), S(KC_X), KC_EXLM,     NO_EQL,       NO_GRV, TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), S(KC_COMM), S(KC_DOT), S(NO_AE), 
     OS_CTL,  OS_GUI,  OS_ALT,      LT_ESC,       KC_TRNS,      LT_TAB, KC_DEL,  NO_MINS, PS_LEFT, S_DOWN,  S_UP, S_RGHT  // KC_MINS -> NO_MINS
   ),
 
   //  http://www.keyboard-layout-editor.com/#/gists/10d6e05e9db760e1e2a0fd7d44ca0aa3
   // ,-----------------------------------------------------------------------------------.
-  // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   ^  |   [  |   ]  |   Y  |   Å  | S(KC_J) -> NO_CIRC  S(KC_L) -> NO_LBRC  S(KC_U) -> NO_RBRC
+  // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   ^  |   [  |   ]  |   '  |   Å  | S(KC_J) -> NO_CIRC  S(KC_L) -> NO_LBRC  S(KC_U) -> NO_RBRC
   // |------+------+------+------+------+-------------+------+------+------+------+------|
-  // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   |  |   (  |   )  |   I  |   O  | S(KC_M) -> NO_PIPE_MAC  S(KC_N) -> NO_LPRN  S(KC_E) -> NO_RPRN
+  // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   |  |   (  |   )  |   "  |   O  | S(KC_M) -> NO_PIPE_MAC  S(KC_N) -> NO_LPRN  S(KC_E) -> NO_RPRN
   // |------+------+------+------+------+------|------+------+------+------+------+------|
   // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   *  |   \  |   /  |   ?  |   å  | ? added here  ~ TD_TILD and ` TD_GRV -> _SYMBOL Layer    S(KC_K) -> NO_ASTR  S(KC_H) -> NO_BSLS_MAC
   // |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -258,8 +253,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // `-----------------------------------------------------------------------------------'
 
   [_RSHIFT] = LAYOUT_ortho_4x12(
-    S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, NO_CIRC, NO_LBRC, NO_RBRC, S(KC_Y), S(NO_AA), 
-    S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, NO_PIPE_MAC, NO_LPRN, NO_RPRN, S(KC_I), S(KC_O), 
+    S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, NO_CIRC, NO_LBRC, NO_RBRC, NO_APOS, S(NO_AA), 
+    S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, NO_PIPE_MAC, NO_LPRN, NO_RPRN, TD_DQOT, S(KC_O), 
     S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, NO_ASTR, NO_BSLS_MAC, NO_SLSH, NO_QUES,  NO_AA, 
     OS_CTL,  OS_GUI,  OS_ALT,  KC_CAPS, NO_UNDS, PS_TAB,  LT_BSPC, KC_TRNS, PS_LEFT, S_DOWN,  S_UP,    S_RGHT 
   ),
@@ -279,12 +274,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |      |      |   A  |   O  |      | Exit |      |   E  |   U  |      |      |      |
   // `-----------------------------------------------------------------------------------'
 
-  [_PLOVER] = LAYOUT_ortho_4x12(
-    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_NO, KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,
-    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_NO, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC,
-    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_NO, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, NO_AE,
-    KC_NO, KC_NO, KC_C,    KC_V,    KC_NO, PLOVEX,  KC_NO, KC_N,    KC_M,    KC_NO, KC_NO, KC_NO
-  ),
+//  [_PLOVER] = LAYOUT_ortho_4x12(
+//    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_NO, KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,
+//    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_NO, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC,
+//    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_NO, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, NO_AE,
+//    KC_NO, KC_NO, KC_C,    KC_V,    KC_NO, PLOVEX,  KC_NO, KC_N,    KC_M,    KC_NO, KC_NO, KC_NO
+//  ),
 
 // ......................................................... Number Keypad Layer
 
@@ -333,19 +328,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   // http://www.keyboard-layout-editor.com/#/gists/002d5c4f0148d1f780c07b72f9546c97
   // .-----------------------------------------------------------------------------------.
-  // |   {  |   .  |   *  |   &  |   }  |      |      |   ~  | Home |  Up  |  End | PgUp | KC_LCBR -> NO_LCBR_MAC  KC_DOT  KC_ASTR -> NO_ASTR  KC_AMPR -> NO_AMPR  TD_RCBR -> NO_RCBR_MAC  TD_TILD -> NO_TILD
+  // |   {  |   .  |   *  |   &  |   }  |      |      |      | Home |  Up  |  End | PgUp | KC_LCBR -> NO_LCBR_MAC  KC_DOT  KC_ASTR -> NO_ASTR  KC_AMPR -> NO_AMPR  TD_RCBR -> NO_RCBR_MAC
   // |-----------------------------------------------------------------------------------|
-  // |   (  |   ^  |   %  |   €  |   )  |      |      |   "  | Left | Down | Right| PgDn | PS_LPRN -> NO_LPRN  PS_CIRC -> NO_CIRC  PS_DLR -> NO_DLR_MAC  KC_RPRN -> NO_RPRN  TD_GRV -> NO_ACUT_MAC
+  // |   (  |   ^  |   %  |   €  |   )  |      |      |   ~  | Left | Down | Right| PgDn | PS_LPRN -> NO_LPRN  PS_CIRC -> NO_CIRC  PS_DLR -> NO_DLR_MAC  KC_RPRN -> NO_RPRN  TD_TILD -> NO_TILD
   // |-----------------------------------------------------------------------------------|
-  // |   [  |   #  |   @  |   !  |   ]  |      |      |   `  |   ´  |   '  |      |      | C_LBRC -> NO_LBRC  KC_HASH  KC_AT -> NO_AT  KC_EXLM  TD_RBRC -> NO_RBRC
+  // |   [  |   #  |   @  |   !  |   ]  |      |      |      |      |   `  |   ´  |      | C_LBRC -> NO_LBRC  KC_HASH  KC_AT -> NO_AT  KC_EXLM  TD_RBRC -> NO_RBRC (? -> NO_ACUT)
   // |-----------------------------------------------------------------------------------|
   // |      |      |      |   \  |   |  |      |      |      |  f() |      |      |      | LT_BSLS -> NO_BSLS_MAC   PS_PIPE -> NO_PIPE_MAC
   // '-----------------------------------------------------------------------------------'
 
   [_SYMBOL] = LAYOUT_ortho_4x12(
-    TD_LCBR, KC_DOT, NO_ASTR, NO_AMPR, TD_RCBR, KC_NO, KC_NO, TD_TILD, KC_HOME, KC_UP, KC_END, KC_PGUP,
-    TD_LPRN, NO_CIRC, KC_PERC, NO_DLR_MAC, TD_RPRN, KC_NO, KC_NO, TD_DQOT, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN,
-    TD_LBRC, KC_HASH, NO_AT, KC_EXLM, TD_RBRC, KC_NO, KC_NO, TD_GRV, NO_ACUT, NO_APOS, KC_NO, KC_NO,
+    TD_LCBR, KC_DOT, NO_ASTR, NO_AMPR, TD_RCBR, KC_NO, KC_NO, KC_NO, KC_HOME, KC_UP, KC_END, KC_PGUP,
+    TD_LPRN, NO_CIRC, KC_PERC, NO_DLR_MAC, TD_RPRN, KC_NO, KC_NO, TD_TILD, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN,
+    TD_LBRC, KC_HASH, NO_AT, KC_EXLM, TD_RBRC, KC_NO, KC_NO, KC_NO, KC_NO, TD_GRV, NO_ACUT, KC_NO,
     KC_TRNS, KC_TRNS, KC_TRNS, NO_BSLS_MAC, NO_PIPE_MAC, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
   ),
 
@@ -361,7 +356,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // '-----------------------------------------------------------------------------------'
 
   [_SYMREG] = LAYOUT_ortho_4x12(
-    KC_TRNS, NO_QUES, NO_PLUS, NO_TILD, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, NO_QUES, NO_PLUS, TD_TILD, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     KC_TRNS, NO_LESS_MAC,  NO_EQL, TD_RNGL, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     KC_TRNS, KC_3,    KC_2,    KC_1,    KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
@@ -430,7 +425,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ................................................................ Adjust Layer
 
   // ,-----------------------------------------------------------------------------------.
-  // |Plover|      |      |      |      |      |      |      |      |      |      |      |_
+  // |      |      |      |      |      |      |      |      |      |      |      |      |
   // |------+------+------+------+------+-------------+------+------+------+------+------|
   // |Aud on|      |      |      |      |      |      |      |      |      |      |      |
   // |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -439,8 +434,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |      |      |      |  f() |      |      |      |      |  f() |      |      |      |
   // `-----------------------------------------------------------------------------------'
 
+// TODO: Add Power off, Sleep, Lock
+
   [_ADJUST] = LAYOUT_ortho_4x12(
-    PLOVER,  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     AU_ON,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     RESET,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO
@@ -451,8 +448,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 float song_startup  [][2] = SONG(STARTUP_SOUND);
 float song_colemak  [][2] = SONG(COLEMAK_SOUND);
 float song_qwerty   [][2] = SONG(QWERTY_SOUND);
-float song_plover   [][2] = SONG(PLOVER_SOUND);
-float song_plover_gb[][2] = SONG(PLOVER_GOODBYE_SOUND);
+//float song_plover   [][2] = SONG(PLOVER_SOUND);
+//float song_plover_gb[][2] = SONG(PLOVER_GOODBYE_SOUND);
 float song_caps_on  [][2] = SONG(CAPS_LOCK_ON_SOUND);
 float song_caps_off [][2] = SONG(CAPS_LOCK_OFF_SOUND);
 float music_scale   [][2] = SONG(MUSIC_SCALE_SOUND);
@@ -1013,7 +1010,7 @@ void send(qk_tap_dance_state_t *state, void *user_data)
 void caps(qk_tap_dance_state_t *state, void *user_data)
 {
   if (state->count > 1) {
-    tap_key(KC_CAPS);
+    tap_key(KC_CAPS);    
   }
   else {
     set_oneshot_mods(MOD_LSFT);
@@ -1117,7 +1114,7 @@ void tap_layer(keyrecord_t *record, uint8_t layer)
 
 // ..................................................................... Keymaps
 
-void persistant_default_layer_set(uint16_t default_layer)
+/*void persistant_default_layer_set(uint16_t default_layer)
 {
   eeconfig_update_default_layer(default_layer);
   default_layer_set            (default_layer);
@@ -1166,7 +1163,7 @@ void plovex(keyrecord_t *record)
     layer_off(_PLOVER);
     toggle_plover();
   }
-}
+}*/
 
 // ........................................................... User Keycode Trap
 
@@ -1238,12 +1235,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       // LT (_LSHIFT, KC_SPC) left right combination layer, see tap dance space
       com_layer(record, LEFT, 0, 0, _LSHIFT, _SYMBOL);
       break;
-    case PLOVER:
-      plover(record);
-      return false;
-    case PLOVEX:
-      plovex(record);
-      return false;
+    // case PLOVER:
+    //   plover(record);
+    //   return false;
+    // case PLOVEX:
+    //   plovex(record);
+    //   return false;
   }
   return true;
 }
@@ -1258,7 +1255,7 @@ void matrix_init_user(void)
 }
 
 #ifdef AUDIO_ENABLE
-#ifdef BACKLIGHT_ENABLE
+/*#ifdef BACKLIGHT_ENABLE
 void led_set_user(uint8_t usb_led)
 {
   static uint8_t old_usb_led = 0;
@@ -1275,7 +1272,7 @@ void led_set_user(uint8_t usb_led)
   }
   old_usb_led = usb_led;
 }
-#endif
+#endif*/
 
 void startup_user(void)
 {
