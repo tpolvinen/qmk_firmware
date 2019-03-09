@@ -1,5 +1,8 @@
 # The sdothum extended Default Planck Layout
 
+## Refactored for macs with nordic keyboard layout 
+
+- Refactored keymap for Planck rev 6
 - Colemak-DH layout layer with shift/tab key overlays
 - Number and symbol/function key layer
 - Hexadecimal keypad layer
