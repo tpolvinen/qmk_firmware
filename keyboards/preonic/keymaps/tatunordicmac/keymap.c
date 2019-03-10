@@ -249,9 +249,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |------+------+------+------+------+-------------+------+------+------+------+------|
   // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   ^  |   [  |   ]  |   '  |   Å  | S(KC_J) -> NO_CIRC  S(KC_L) -> TD_LBRC  S(KC_U) -> TD_RBRC
   // |------+------+------+------+------+-------------+------+------+------+------+------|
-  // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   |  |   (  |   )  |   "  |   O  | S(KC_M) -> NO_PIPE_MAC  S(KC_N) -> TD_LPRN  S(KC_E) -> TD_RPRN
+  // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   *  |   (  |   )  |   "  |   O  | S(KC_M) -> NO_PIPE_MAC  S(KC_N) -> TD_LPRN  S(KC_E) -> TD_RPRN
   // |------+------+------+------+------+------|------+------+------+------+------+------|
-  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   *  |   \  |   /  |   ?  |   å  | ? added here  ~ TD_TILD and ` TD_GRV -> _SYMBOL Layer    S(KC_K) -> NO_ASTR  S(KC_H) -> NO_BSLS_MAC
+  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   |  |   \  |   /  |   ?  |   å  | ? added here  ~ TD_TILD and ` TD_GRV -> _SYMBOL Layer    S(KC_K) -> NO_ASTR  S(KC_H) -> NO_BSLS_MAC
   // |------+------+------+------+------+------+------+------+------+------+------+------|
   // | Ctrl |  GUI |  Alt | Caps |   _  | ↑Tab | Bksp |  f() | Left | Down |  Up  | Right| KC_UNDS -> NO_UNDS
   // `-----------------------------------------------------------------------------------'
@@ -259,8 +259,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_RSHIFT] = LAYOUT_preonic_grid(
     S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5), KC_NO, KC_NO, S(KC_6), S(KC_7), S(KC_8), S(KC_9), S(KC_0),
     S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, NO_CIRC,     TD_LBRC,     TD_RBRC, NO_APOS, S(NO_AA), 
-    S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, NO_PIPE_MAC, TD_LPRN,     TD_RPRN, TD_DQOT, S(KC_O), 
-    S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, NO_ASTR,     NO_BSLS_MAC, NO_SLSH, NO_QUES, NO_AA, 
+    S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, NO_ASTR,     TD_LPRN,     TD_RPRN, TD_DQOT, S(KC_O), 
+    S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, NO_PIPE_MAC, NO_BSLS_MAC, NO_SLSH, NO_QUES, NO_AA, 
     OS_CTL,  OS_GUI,  OS_ALT,  KC_CAPS, NO_UNDS, PS_TAB,  LT_BSPC, KC_TRNS,     PS_LEFT,     S_DOWN,  S_UP,    S_RGHT 
   ),
 #endif

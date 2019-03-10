@@ -3,6 +3,8 @@
 
 #include "../../config.h"
 
+#define USB_MAX_POWER_CONSUMPTION 100
+
 // required because lower/raise modifiers are redefined by colemak-dh
 #define PREVENT_STUCK_MODIFIERS
 
