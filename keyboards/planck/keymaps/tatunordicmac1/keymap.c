@@ -2,9 +2,9 @@
 // ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 //
 //   cd qmk_firmware
-//   make planck/rev4:tatu:clean (good practice before flashing)
+//   make planck/rev4:tatunordicmac1:clean (good practice before flashing)
 //   Reset keyboard or press hw reset button on base (hole).
-//   make planck/rev4:tatu:dfu
+//   make planck/rev4:tatunordicmac1:dfu
 //
 // Package requirements (for arch linux)
 // ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
