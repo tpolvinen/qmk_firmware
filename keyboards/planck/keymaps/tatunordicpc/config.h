@@ -14,7 +14,7 @@
 // #define MOUSEKEY_WHEEL_DELAY 0
 
 // compile time macro string, see functions/hardware planck script (undefine otherwise)
-#define PRIVATE_STRING
+// #define PRIVATE_STRING
 
 // compile time macro string, must be in quotes
 #define PUBLIC_STRING ":%s/arch=(.*)/arch=('any')\n"
@@ -25,8 +25,8 @@
 // number layer 0 position KEYPAD_0, THUMB_0
 #define THUMB_0
 
-// home block shift symbol clustes defined (no overlays required for extended symbols, undefine otherwise)
-#define SHIFT_SYMBOLS
+// home block shift symbol clusters defined (no overlays required for extended symbols, undefine otherwise)
+// #define SHIFT_SYMBOLS
 
 // center column TT assignments (undefine for OSM chords)
 #define CENTER_TT

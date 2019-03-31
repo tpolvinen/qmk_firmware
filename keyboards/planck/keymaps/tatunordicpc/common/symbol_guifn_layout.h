@@ -15,9 +15,9 @@
 
   [_SYMBOL] = {
     {_______, NO_TILD, S(KC_NUHS), NO_AMPR, _______, ___x___, ___x___, _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP},
-    {OS_CTL,  SM_CIRC, SM_PERC, SM_DLR,  _______, ___x___, ___x___, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN},
+    {OS_CTL,  SM_CIRC, SM_PERC, SM_DLR,  _______, ___x___, ___x___, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN},  // TODO: SM_CIRC produces Ubuntu Menu and ampersand &!
     {_______, KC_HASH, NO_AT,   KC_EXLM, _______, ___x___, ___x___, _______, _______, _______, _______, _______},
-    {___x___, ___x___, ___x___, ADJUST,  LT_BSLS, ___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___},
+    {___x___, ___x___, ___x___, ADJUST,  LT_BSLS, ___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___},  // TODO: LT_BSLS produces Plus +!
   },
 #else
   // .-----------------------------------------------------------------------------------.

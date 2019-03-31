@@ -80,6 +80,7 @@
 #include "audio.h"
 #endif
 #include "eeconfig.h"
+#include "keymap_nordic.h"
 #include "keymap_swedish.h"
 
 extern keymap_config_t keymap_config;
@@ -185,7 +186,7 @@ enum planck_keycodes {
 #define S_TAB   S    (KC_TAB)
 #define S_UP    S    (KC_UP)
 
-#include "tapdance.h"
+#include "./common/tapdance.h"
 
 // keycodes
 #define ___x___ KC_TRNS
@@ -258,35 +259,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #include "beakl.h"
 #include "colemak.h"
 #include "qwerty.h"
-#include "steno_layout.h"
+#include "./common/steno_layout.h"
 
 // ...................................................... Number / Function Keys
 
-#include "number_fkey_layout.h"
+#include "./common/number_fkey_layout.h"
 
 // ......................................................... Symbol / Navigation
 
-#include "symbol_guifn_layout.h"
+#include "./common/symbol_guifn_layout.h"
 
 // ............................................................... Toggle Layers
 
 #ifdef CENTER_TT
-#include "toggle_layout.h"
+#include "./common/toggle_layout.h"
 #endif
 
 // ......................................................... Short Cuts / Adjust
 
-#include "chord_layout.h"
+#include "./common/chord_layout.h"
 
 };
 
 // ...................................................................... Sounds
 
-#include "sounds.h"
+#include "./common/sounds.h"
 
 // ........................................................... User Keycode Trap
 
-#include "keycode_functions.h"
+#include "./common/keycode_functions.h"
 
 #define BASE_1  1
 #define BASE_2  2
@@ -480,4 +481,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
   return true;
 }
 
-#include "init.h"
+#include "./common/init.h"

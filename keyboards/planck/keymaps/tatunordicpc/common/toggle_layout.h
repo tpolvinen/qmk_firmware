@@ -17,7 +17,7 @@
   [_TTNUMBER] = {
     {_______, KC_F,    MT_E,    KC_D,    _______, ___x___, ___x___, NO_SLSH, KC_7,    KC_8,    KC_9,    S(KC_NUHS)},
     {OS_CTL,  GT_C,    AT_B,    ST_A,    _______, ___x___, ___x___, TD_DOT,  KC_4,    KC_5,    KC_6,    NO_MINS},
-    {_______, NO_HASH, SM_G,    NO_BSLS, _______, ___x___, ___x___, TD_COMM, KC_1,    KC_2,    KC_3,    NO_PLUS},
+    {_______, KC_HASH, SM_G,    NO_BSLS, _______, ___x___, ___x___, TD_COMM, KC_1,    KC_2,    KC_3,    NO_PLUS},
 #ifdef THUMB_0
     {_______, _______, _______, _______, TT_ESC,  KC_SPC,  KC_0,    LT_EQL,  _______, _______, _______, _______},
 #else
@@ -57,9 +57,9 @@
   // `-----------------------------------------------------------------------------------'
 
   [_TTREGEX] = {
-    {___x___, NO_TILD, NO_LCBR, NO_RCBR, NO_AMPR, ___x___, ___x___, NO_PERC, NO_LBRC, NO_RBRC, NO_AT,   ___x___},
+    {___x___, NO_TILD, NO_LCBR, NO_RCBR, NO_AMPR, ___x___, ___x___, KC_PERC, NO_LBRC, NO_RBRC, NO_AT,   ___x___},
     {___x___, NO_CIRC, NO_LESS,   NO_GRTR,   NO_QUES, ___x___, ___x___, NO_PIPE, NO_LPRN, NO_RPRN, NO_DLR,  ___x___},
-    {___x___, NO_COLN, KC_EXLM, NO_EQL,  NO_SLSH, ___x___, ___x___, NO_BSLS, S(KC_NUHS), KC_DOT,  NO_HASH, ___x___},
+    {___x___, NO_COLN, KC_EXLM, NO_EQL,  NO_SLSH, ___x___, ___x___, NO_BSLS, S(KC_NUHS), KC_DOT,  KC_HASH, ___x___},
     {_______, _______, _______, _______, TT_ESC,  NO_MINS, NO_PLUS, KC_SPC,  _______, _______, _______, _______},
   },
 

@@ -17,9 +17,9 @@
   [_NUMBER] = {
     {_______, KC_F,    MT_E,    KC_D,    _______, ___x___, ___x___, NO_SLSH, KC_7,    KC_8,    KC_9,    S(KC_NUHS)},
     {OS_CTL,  GT_C,    AT_B,    ST_A,    _______, ___x___, ___x___, TD_DOT,  KC_4,    KC_5,    KC_6,    NO_MINS},
-    {_______, KC_HASH, SM_G,    KC_BSLS, _______, ___x___, ___x___, TD_COMM, KC_1,    KC_2,    KC_3,    NO_PLUS},
+    {_______, KC_HASH, SM_G,    KC_BSLS, _______, ___x___, ___x___, TD_COMM, KC_1,    KC_2,    KC_3,    NO_PLUS},  // TODO: KC_BSLS produces single quote!
 #ifdef THUMB_0
-    {___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, KC_0,    LT_EQL,  ___x___, ___x___, ___x___},
+    {___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, KC_0,    LT_EQL,  ___x___, ___x___, ___x___},  // TODO: LT_EQL produces zero!
 #else
     {___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___, NO_EQL,  LT_0,    ___x___, ___x___, ___x___},
 #endif
