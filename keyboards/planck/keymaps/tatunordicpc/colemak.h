@@ -28,9 +28,9 @@
   },
 
   // ,-----------------------------------------------------------------------------------.
-  // |   Q  |   W  |   {  |   }  |   €  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   Ö  |
+  // |   Q  |   '  |   {  |   }  |   €  | ^Alt | ^GUI |   J  |   L  |   U  |   Y  |   Ö  |
   // |------+------+------+------+------+-------------+------+------+------+------+------|
-  // |   A  |   R  |   <  |   >  |   ~  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  |
+  // |   A  |   "  |   <  |   >  |   ~  | ↑Alt | ↑GUI |   M  |   N  |   E  |   I  |   O  |
   // |------+------+------+------+------+------|------+------+------+------+------+------|
   // |   Z  |   X  |   !  |   =  |   `  | Caps |^Shift|   K  |   H  |   ;  |   :  |   Ä  |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -38,26 +38,26 @@
   // `-----------------------------------------------------------------------------------'
 
   [_LSHIFT] = {
-    {S(KC_Q), S(KC_W), NO_LCBR, NO_RCBR,  NO_EURO, CNTR_TL, CNTR_TR, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), S(NO_OSLH)}, 
-    {S(KC_A), S(KC_R), NO_LESS, NO_GRTR,  NO_TILD, CNTR_HL, CNTR_HR, S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O)},
-    {S(KC_Z), S(KC_X), KC_EXLM, NO_EQL,   NO_ACUT, CNTR_BL, CNTR_BR, S(KC_K), S(KC_H), NO_SCLN, NO_COLN, S(NO_AE)}, 
+    {S(KC_Q), NO_APOS, NO_LCBR, NO_RCBR,  NO_EURO, CNTR_TL, CNTR_TR, S(KC_J), S(KC_L), S(KC_U), S(KC_Y), S(NO_OSLH)}, 
+    {S(KC_A), TD_DQOT, NO_LESS, NO_GRTR,  NO_TILD, CNTR_HL, CNTR_HR, S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O)},
+    {S(KC_Z), S(KC_X), KC_EXLM, NO_EQL,   NO_GRV, CNTR_BL, CNTR_BR, S(KC_K), S(KC_H), NO_SCLN, NO_COLN, S(NO_AE)}, 
     {OS_CTL,  OS_GUI,  OS_ALT,  LT_ESC,  ___fn__, LT_TAB,  KC_DEL,  NO_MINS, SL_LEFT, S_DOWN, S_UP, S_RGHT },
   },
 
   // ,-----------------------------------------------------------------------------------.
-  // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   ^  |   [  |   ]  |   Y  |   Å  |
+  // |   Q  |   W  |   F  |   P  |   B  | ^Alt | ^GUI |   ^  |   [  |   ]  |   '  |   Å  |
   // |------+------+------+------+------+-------------+------+------+------+------+------|
-  // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   |  |   (  |   )  |   I  |   O  |
+  // |   A  |   R  |   S  |   T  |   G  | ↑Alt | ↑GUI |   *  |   (  |   )  |   "  |   O  |
   // |------+------+------+------+------+------|------+------+------+------+------+------|
-  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   *  |   \  |   /  |   ?  |   å  |
+  // |   Z  |   X  |   C  |   D  |   V  | Caps |^Shift|   |  |   \  |   /  |   ?  |   å  |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
   // | Ctrl |  GUI |  Alt | Caps |   _  | ↑Tab | Bksp |  f() | Left | Down |  Up  | Right|
   // `-----------------------------------------------------------------------------------'
 
   [_RSHIFT] = {
-    {S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), CNTR_TL, CNTR_TR, NO_CIRC, NO_LBRC, NO_RBRC, S(KC_Y), S(NO_AA)}, 
-    {S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), CNTR_HL, CNTR_HR, NO_PIPE, NO_LPRN, NO_RPRN, S(KC_I), S(KC_O)}, 
-    {S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), CNTR_BL, CNTR_BR, NO_ASTR, NO_BSLS, NO_SLSH, NO_QUES,  NO_AA}, 
+    {S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), CNTR_TL, CNTR_TR, NO_CIRC, NO_LBRC, NO_RBRC, NO_APOS, S(NO_AA)}, 
+    {S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), CNTR_HL, CNTR_HR, NO_ASTR, NO_LPRN, NO_RPRN, TD_DQOT, S(KC_O)}, 
+    {S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), CNTR_BL, CNTR_BR, NO_PIPE, NO_BSLS, NO_SLSH, NO_QUES,  NO_AA}, 
     {OS_CTL,  OS_GUI,  OS_ALT,  KC_CAPS, NO_UNDS, SL_TAB, LT_BSPC, ___fn__, SL_LEFT, S_DOWN, S_UP, S_RGHT }, 
   },
 #endif
