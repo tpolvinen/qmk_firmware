@@ -2,9 +2,9 @@
 // ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 //
 //   cd qmk_firmware
-//   make planck/rev6:tatunordicmac2:clean (good practice before flashing)
+//   make planck/rev6:tatunordicpcrev6:clean (good practice before flashing)
 //   Reset keyboard or press hw reset button on base (hole).
-//   make planck/rev6:tatunordicmac2:dfu-util
+//   make planck/rev6:tatunordicpcrev6:dfu-util
 //
 //
 // Notes
@@ -61,6 +61,7 @@
 #endif
 #include "eeconfig.h"
 #include "keymap_swedish.h"
+#include "keymap_nordic.h"
 
 extern keymap_config_t keymap_config;
 
@@ -229,8 +230,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // `-----------------------------------------------------------------------------------'
 
   [_LSHIFT] = LAYOUT_ortho_4x12(
-    S(KC_Q), NO_APOS, TD_LCBR,     TD_RCBR,     NO_DLR_MAC, OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U),    S(KC_Y),   S(NO_OSLH), 
-    S(KC_A), TD_DQOT, NO_LESS_MAC, TD_RNGL, TD_TILD,    OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E),    S(KC_I),   S(KC_O),
+    S(KC_Q), NO_APOS, TD_LCBR,     TD_RCBR,     NO_DLR, OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U),    S(KC_Y),   S(NO_OSLH), 
+    S(KC_A), TD_DQOT, NO_LESS, TD_RNGL, TD_TILD,    OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E),    S(KC_I),   S(KC_O),
     S(KC_Z), S(KC_X), KC_EXLM,     NO_EQL,      NO_GRV,     TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), S(KC_COMM), S(KC_DOT), S(NO_AE), 
     OS_CTL,  OS_GUI,  OS_ALT,      LT_ESC,      KC_TRNS,    LT_TAB,  KC_DEL,  NO_MINS, PS_LEFT, S_DOWN,     S_UP,      S_RGHT  // KC_MINS -> NO_MINS
   ),
@@ -249,7 +250,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_RSHIFT] = LAYOUT_ortho_4x12(
     S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, NO_CIRC,     TD_LBRC,     TD_RBRC, NO_APOS, S(NO_AA), 
     S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, NO_ASTR,     TD_LPRN,     TD_RPRN, TD_DQOT, S(KC_O), 
-    S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, NO_PIPE_MAC, NO_BSLS_MAC, NO_SLSH, NO_QUES, NO_AA, 
+    S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, NO_PIPE, NO_BSLS, NO_SLSH, NO_QUES, NO_AA, 
     OS_CTL,  OS_GUI,  OS_ALT,  KC_CAPS, NO_UNDS, PS_TAB,  LT_BSPC, KC_TRNS,     PS_LEFT,     S_DOWN,  S_UP,    S_RGHT 
   ),
 #endif
@@ -294,7 +295,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   TD_LCBR,     NO_AMPR,     NO_QUES, TD_COLN,     TD_RCBR,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,   KC_NO,   KC_NO,   TD_LPRN,     NO_DLR,      KC_PERC, NO_CIRC,     TD_RPRN,
     KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   TD_LBRC,     NO_LESS_MAC, TD_TILD, TD_RNGL, TD_RBRC,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, NO_PIPE_MAC, NO_BSLS_MAC, KC_TRNS, KC_TRNS,     KC_TRNS
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, NO_PIPE, NO_BSLS, KC_TRNS, KC_TRNS,     KC_TRNS
   ),
 
 // ..................................................... Symbol Navigation Layer
@@ -314,7 +315,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TD_LCBR, KC_DOT,  NO_ASTR, NO_AMPR,     TD_RCBR,     KC_NO,   KC_NO,   KC_NO,   KC_HOME, KC_UP,   KC_END,  KC_PGUP,
     PS_LPRN, PS_CIRC, KC_PERC, PS_DLR,      TD_RPRN,     KC_NO,   KC_NO,   TD_TILD, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN,
     TD_LBRC, KC_HASH, NO_AT,   KC_EXLM,     TD_RBRC,     KC_NO,   KC_NO,   KC_NO,   KC_NO,   TD_GRV,  NO_ACUT, KC_NO,
-    KC_TRNS, KC_TRNS, KC_TRNS, NO_BSLS_MAC, NO_PIPE_MAC, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+    KC_TRNS, KC_TRNS, KC_TRNS, NO_BSLS, NO_PIPE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
   ),
 
   // http://www.keyboard-layout-editor.com/#/gists/b381b4787a152dcf7ef2fa8e9c23c0c8
