@@ -33,7 +33,7 @@
   [_SYMBOL] = {
     {NO_LCBR, KC_DOT,  S(KC_NUHS), KC_AMPR, TD_RCBR, _______, _______, _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP},
     {SM_LPRN, SM_CIRC, SM_PERC, SM_DLR,  TD_RPRN, _______, _______, _______, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN},
-    {NO_LBRC, KC_HASH, KC_AT,   KC_EXLM, TD_RBRC, _______, _______, _______, _______, _______, _______, _______},
+    {NO_LBRC, KC_HASH, NO_AT,   KC_EXLM, TD_RBRC, _______, _______, _______, _______, _______, _______, _______},
     {___x___, ___x___, ___x___, SL_PIPE, NO_BSLS, ___x___, ___x___, ___x___, ___fn__, ___x___, ___x___, ___x___},
   },
 
