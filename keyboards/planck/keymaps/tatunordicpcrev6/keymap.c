@@ -230,8 +230,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // `-----------------------------------------------------------------------------------'
 
   [_LSHIFT] = LAYOUT_ortho_4x12(
-    S(KC_Q), NO_APOS, TD_LCBR,     TD_RCBR,     NO_DLR, OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U),    S(KC_Y),   S(NO_OSLH), 
-    S(KC_A), TD_DQOT, NO_LESS, TD_RNGL, TD_TILD,    OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E),    S(KC_I),   S(KC_O),
+    S(KC_Q), NO_APOS, TD_LCBR, TD_RCBR, NO_EURO, OS_CALT, OS_CGUI, S(KC_J), S(KC_L), S(KC_U),    S(KC_Y),   S(NO_OSLH), 
+    S(KC_A), TD_DQOT, NO_LESS, NO_GRTR, TD_TILD, OS_SALT, OS_SGUI, S(KC_M), S(KC_N), S(KC_E),    S(KC_I),   S(KC_O),
     S(KC_Z), S(KC_X), KC_EXLM,     NO_EQL,      NO_GRV,     TD_CAPS, OS_CSFT, S(KC_K), S(KC_H), S(KC_COMM), S(KC_DOT), S(NO_AE), 
     OS_CTL,  OS_GUI,  OS_ALT,      LT_ESC,      KC_TRNS,    LT_TAB,  KC_DEL,  NO_MINS, PS_LEFT, S_DOWN,     S_UP,      S_RGHT  // KC_MINS -> NO_MINS
   ),
@@ -248,16 +248,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // `-----------------------------------------------------------------------------------'
 
   [_RSHIFT] = LAYOUT_ortho_4x12(
-    S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, NO_CIRC,     TD_LBRC,     TD_RBRC, NO_APOS, S(NO_AA), 
-    S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, NO_ASTR,     TD_LPRN,     TD_RPRN, TD_DQOT, S(KC_O), 
+    S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_B), OS_CALT, OS_CGUI, NO_CIRC, TD_LBRC, TD_RBRC, NO_APOS, S(NO_AA), 
+    S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), OS_SALT, OS_SGUI, NO_ASTR, TD_LPRN, TD_RPRN, TD_DQOT, S(KC_O), 
     S(KC_Z), S(KC_X), S(KC_C), S(KC_D), S(KC_V), TD_CAPS, OS_CSFT, NO_PIPE, NO_BSLS, NO_SLSH, NO_QUES, NO_AA, 
-    OS_CTL,  OS_GUI,  OS_ALT,  KC_CAPS, NO_UNDS, PS_TAB,  LT_BSPC, KC_TRNS,     PS_LEFT,     S_DOWN,  S_UP,    S_RGHT 
+    OS_CTL,  OS_GUI,  OS_ALT,  KC_CAPS, NO_UNDS, PS_TAB,  LT_BSPC, KC_TRNS, PS_LEFT, S_DOWN,  S_UP,    S_RGHT 
   ),
 #endif
 
 // ......................................................... Number Keypad Layer
 
   // http://www.keyboard-layout-editor.com/#/gists/41a5841daff39461af667308282826eb
+  // fed  -789*
+
   // .-----------------------------------------------------------------------------------.
   // |      |   F  |   E  |   D  |      |      |      |   /  |   7  |   8  |   9  |   *  | KC_SLSH -> KC_PSLS KC_ASTR -> KC_PAST
   // |-----------------------------------------------------------------------------------|
@@ -270,13 +272,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // '-----------------------------------------------------------------------------------'
 
   [_NUMBER] = LAYOUT_ortho_4x12(
-    KC_NO,   KC_F,    MT_E,    KC_D,    KC_NO,   KC_NO,   KC_NO,   KC_PSLS, KC_P7,   KC_P8,   KC_P9,   KC_PAST,
-    OS_CTL,  GT_C,    AT_B,    LT_A,    KC_NO,   KC_NO,   KC_NO,   KC_DOT,  KC_P4,   KC_P5,   KC_P6,   KC_PMNS,
-    KC_NO,   KC_HASH, MT_X,    S(KC_G), KC_NO,   KC_NO,   KC_NO,   KC_COMM, KC_P1,   KC_P2,   KC_P3,   KC_PPLS,
+    KC_NO,   KC_F,    MT_E,    KC_D,    KC_NO,   KC_NO,   KC_NO,   KC_PSLS, KC_7,    KC_8,    KC_9,    NO_ASTR,
+    OS_CTL,  GT_C,    AT_B,    LT_A,    KC_NO,   KC_NO,   KC_NO,   KC_DOT,  KC_4,    KC_5,    KC_6,    NO_MINS,
+    KC_NO,   KC_HASH, MT_X,    S(KC_G), KC_NO,   KC_NO,   KC_NO,   KC_COMM, KC_1,    KC_2,    KC_3,    NO_PLUS,
 #ifdef THUMB_0
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_P0,   KC_PEQL, KC_TRNS, KC_TRNS, KC_TRNS
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_0, NO_EQL, KC_TRNS, KC_TRNS, KC_RALT
 #else
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, LT_EQL,  LT_0,    KC_TRNS, KC_TRNS, KC_TRNS
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, NO_EQL, KC_0, KC_TRNS, KC_TRNS, KC_RALT
 #endif
   ),
 
@@ -292,14 +294,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // '-----------------------------------------------------------------------------------'
 
   [_NUMSYM] = LAYOUT_ortho_4x12(
-    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   TD_LCBR,     NO_AMPR,     NO_QUES, TD_COLN,     TD_RCBR,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,   KC_NO,   KC_NO,   TD_LPRN,     NO_DLR,      KC_PERC, NO_CIRC,     TD_RPRN,
-    KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   TD_LBRC,     NO_LESS_MAC, TD_TILD, TD_RNGL, TD_RBRC,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, NO_PIPE, NO_BSLS, KC_TRNS, KC_TRNS,     KC_TRNS
+    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   TD_LCBR, NO_AMPR, NO_QUES, TD_COLN, TD_RCBR,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,   KC_NO,   KC_NO,   TD_LPRN, NO_DLR,  PS_PERC, NO_CIRC, TD_RPRN,
+    KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   TD_LBRC, NO_LESS, TD_TILD, NO_GRTR, TD_RBRC,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, NO_PIPE, NO_BSLS, KC_TRNS, KC_TRNS, KC_TRNS
   ),
 
 // ..................................................... Symbol Navigation Layer
-
+  // {.*&}
+  // (^%€)
+  // [#@!]
+  // [#@!]
+  // \|  
   // http://www.keyboard-layout-editor.com/#/gists/002d5c4f0148d1f780c07b72f9546c97
   // .-----------------------------------------------------------------------------------.
   // |   {  |   .  |   *  |   &  |   }  |      |      |      | Home |  Up  |  End | PgUp | KC_DOT  KC_ASTR -> NO_ASTR  KC_AMPR -> NO_AMPR
@@ -312,13 +318,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // '-----------------------------------------------------------------------------------'
 
   [_SYMBOL] = LAYOUT_ortho_4x12(
-    TD_LCBR, KC_DOT,  NO_ASTR, NO_AMPR,     TD_RCBR,     KC_NO,   KC_NO,   KC_NO,   KC_HOME, KC_UP,   KC_END,  KC_PGUP,
-    PS_LPRN, PS_CIRC, KC_PERC, PS_DLR,      TD_RPRN,     KC_NO,   KC_NO,   TD_TILD, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN,
-    TD_LBRC, KC_HASH, NO_AT,   KC_EXLM,     TD_RBRC,     KC_NO,   KC_NO,   KC_NO,   KC_NO,   TD_GRV,  NO_ACUT, KC_NO,
+    TD_LCBR, KC_DOT,  NO_ASTR, NO_AMPR, TD_RCBR, KC_NO,   KC_NO,   KC_NO,   KC_HOME, KC_UP,   KC_END,  KC_PGUP,
+    TD_LPRN, PS_CIRC, PS_PERC, NO_EURO, TD_RPRN, KC_NO,   KC_NO,   TD_TILD, LT_LFTX, KC_DOWN, KC_RGHT, KC_PGDN,
+    TD_LBRC, KC_HASH, NO_AT,   KC_EXLM, TD_RBRC, KC_NO,   KC_NO,   KC_NO,   KC_NO,   TD_GRV,  NO_ACUT, KC_NO,
     KC_TRNS, KC_TRNS, KC_TRNS, NO_BSLS, NO_PIPE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
   ),
 
   // http://www.keyboard-layout-editor.com/#/gists/b381b4787a152dcf7ef2fa8e9c23c0c8
+  // ?+~
+  // <=½ TD_RNGL = ½
+  // 321
   // .-----------------------------------------------------------------------------------.
   // |      |   ?  |   +  |   ~  |      |      |      |      |      |      |      |      | KC_QUES -> NO_QUES KC_PLUS -> NO_PLUS KC_TILD -> TD_TILD
   // |-----------------------------------------------------------------------------------|
@@ -330,10 +339,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // '-----------------------------------------------------------------------------------'
 
   [_SYMREG] = LAYOUT_ortho_4x12(
-    KC_TRNS, NO_QUES,     NO_PLUS, TD_TILD, KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_TRNS, NO_LESS_MAC, KC_PEQL, TD_RNGL, KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_3,        KC_2,    KC_1,    KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-    KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+    KC_TRNS, NO_QUES, NO_PLUS, TD_TILD, KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, NO_LESS, KC_PEQL, TD_RNGL, KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_3,    KC_2,    KC_1,    KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
   ),
 
 // ............................................................... Mouse Actions
@@ -519,12 +528,12 @@ void tilde(qk_tap_dance_state_t *state, void *user_data)
   // double tap plus down: repeating keycode
   if (state->count > 2) {
     register_code(KC_ALGR);  // KC_LSFT -> KC_ALGR
-    register_code(NO_QUOT);  // KC_GRV -> NO_QUOT
+    register_code(KC_RBRC);  // KC_GRV -> NO_QUOT
   }
   // tap: keycode
   else {
     register_code(KC_ALGR);  // shift_key(KC_GRV) -> register_code KC_ALGR & NO_QUOT
-    register_code(NO_QUOT);
+    register_code(KC_RBRC);
     // double tap: unix home directory
     if (state->count > 1) {
       unregister_code(KC_ALGR);  // tap_key(KC_SLSH) -> unregister_code(KC_ALGR)  &  shift_key(KC_7);
@@ -535,7 +544,7 @@ void tilde(qk_tap_dance_state_t *state, void *user_data)
 
 void tilde_reset(qk_tap_dance_state_t *state, void *user_data)
 {
-  unregister_code(NO_QUOT);
+  unregister_code(KC_RBRC);
   unregister_code(KC_ALGR);
 }
 
@@ -544,24 +553,24 @@ void rcurly(qk_tap_dance_state_t *state, void *user_data)
   // double tap plus down: repeating keycode
   if (state->count > 3) {
     register_code(KC_ALGR);
-    shift_key(KC_9);
+    tap_key(KC_0);
   }
   // tap: keycode
   else if (state->count > 2) {
       register_code(KC_ALGR);
-      shift_key(KC_8);
-      shift_key(KC_9);
+      tap_key(KC_7);
+      tap_key(KC_0);
       unregister_code(KC_ALGR);
       tap_key(KC_LEFT);
   } 
   else if (state->count > 1) {
       register_code(KC_ALGR);
-      shift_key(KC_8);
-      shift_key(KC_9);
+      tap_key(KC_7);
+      tap_key(KC_0);
   }
   else {
     register_code(KC_ALGR);
-    shift_key(KC_9);
+    tap_key(KC_0);
   }
 }
 
@@ -575,24 +584,24 @@ void lcurly(qk_tap_dance_state_t *state, void *user_data)
   // double tap plus down: repeating keycode
   if (state->count > 3) {
     register_code(KC_ALGR);
-    shift_key(KC_8);
+    tap_key(KC_7);
   }
   // tap: keycode
   else if (state->count > 2) {
       register_code(KC_ALGR);
-      shift_key(KC_8);
-      shift_key(KC_9);
+      tap_key(KC_7);
+      tap_key(KC_0);
       unregister_code(KC_ALGR);
       tap_key(KC_LEFT);
   } 
   else if (state->count > 1) {
       register_code(KC_ALGR);
-      shift_key(KC_8);
-      shift_key(KC_9);
+      tap_key(KC_7);
+      tap_key(KC_0);
   }
   else {
     register_code(KC_ALGR);
-    shift_key(KC_8);
+    tap_key(KC_7);
   }
 }
 
@@ -606,7 +615,7 @@ void rbrace(qk_tap_dance_state_t *state, void *user_data)
   // double tap plus down: repeating keycode
   if (state->count > 3) {
     register_code(KC_RALT);
-    shift_key(KC_9);
+    tap_key(KC_9);
   }
   // tap: keycode
   else if (state->count > 2) {
@@ -1116,30 +1125,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       break;
     case PS_CIRC:
       // GUI_T(S(KC_6))
-      mt_shift(record, KC_LGUI, KC_RBRC); // Just for mac, was: mt_shift(record, KC_LGUI, KC_6);
+      mt_shift(record, KC_LSFT, KC_RBRC); // For mac use: mt_shift(record, KC_LGUI, KC_RBRC); original: mt_shift(record, KC_LGUI, KC_6);
       break;
     case PS_DLR:
       // SFT_T(S(KC_4))
-      mt_shift(record, KC_LSFT, KC_4);
+      mt_shift(record, KC_ALGR, KC_4); // original: mt_shift(record, KC_LSFT, KC_4);
       break;
     case PS_LPRN:
       // CTL_T(S(KC_9))
-      mt_shift(record, KC_LCTL, KC_8); // was: mt_shift(record, KC_LCTL, KC_9);
+      mt_shift(record, KC_LSFT, KC_8); // was: mt_shift(record, KC_LCTL, KC_9);
       break;
     case PS_PERC:
       // ALT_T(S(KC_5))
-      mt_shift(record, KC_LALT, KC_5);
+      mt_shift(record, KC_LSFT, KC_5);
       break;
     case PS_LEFT:
       tap_layer(record, _MOUSE);
       // LT (_MOUSE, S(KC_LEFT)) left right combination layer
       com_layer(record, RIGHT, KC_LEFT, SHIFT, _MOUSE, _LSHIFT);
       break;
-    case PS_PIPE: // Not really needed since NO_PIPE_MAC is in layers. Or is it???
-      tap_layer(record, _MOUSE);
+    //case PS_PIPE: // Not really needed since NO_PIPE is in layers.
+     // tap_layer(record, _MOUSE);
       // LT (_MOUSE, S(KC_BSLS)) left right combination layer
-      com_layer(record, LEFT, KC_BSLS, SHIFT, _MOUSE, _SYMBOL);
-      break;
+      //com_layer(record, LEFT, KC_BSLS, SHIFT, _MOUSE, _SYMBOL);
+      //break;
     case PS_TAB: // Not sure whether this is needed in my use case?
       // LT (_FNCKEY, S(KC_TAB)) emulation
       lt_shift(record, KC_TAB, _FNCKEY);
